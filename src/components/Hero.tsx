@@ -165,6 +165,7 @@ export default function Hero() {
 
       {/* ── Text content ── */}
       <motion.div
+        className="hero-text"
         style={{
           position: 'relative',
           zIndex: 10,
@@ -292,7 +293,7 @@ export default function Hero() {
       />
 
       {/* ── Laurel Strip ── */}
-      <div style={{
+      <div className="laurel-strip" style={{
         position: 'absolute',
         bottom: '2.5rem',
         left: 0,
@@ -328,6 +329,20 @@ export default function Hero() {
 
       {/* Bottom fade */}
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '180px', background: 'linear-gradient(to bottom, transparent, #000)', pointerEvents: 'none', zIndex: 5 }} />
+
+      <style>{`
+        @media (max-width: 900px) {
+          #hero {
+            align-items: flex-start !important;
+          }
+          #hero .hero-text {
+            padding-top: 100px !important;
+          }
+          #hero .laurel-strip {
+            display: none !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

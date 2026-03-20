@@ -44,7 +44,7 @@ export default function Navbar() {
     >
       {/* Logo */}
       <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        <img src={eagleRiseLogo} alt="Eagle Pictures Logo" style={{ height: '130px', width: 'auto' }} />
+        <img src={eagleRiseLogo} alt="Eagle Pictures Logo" className="nav-logo" style={{ height: '130px', width: 'auto' }} />
       </a>
 
       {/* Desktop Nav */}
@@ -142,6 +142,7 @@ export default function Navbar() {
         @media (max-width: 900px) {
           .desktop-nav { display: none !important; }
           .hamburger { display: block !important; }
+          .nav-logo { height: 75px !important; }
         }
       `}</style>
     </motion.nav>
