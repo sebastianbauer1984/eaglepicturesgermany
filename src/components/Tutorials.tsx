@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
+import TiltCard from './TiltCard'
 
 type CardType = 'youtube' | 'vimeo-showcase' | 'instagram'
 
@@ -72,6 +73,8 @@ export default function Tutorials() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
+            >
+            <TiltCard
               style={{
                 position: 'relative',
                 aspectRatio: card.type === 'instagram' ? '4/5' : '16/9',
@@ -143,6 +146,7 @@ export default function Tutorials() {
                   allowTransparency
                 />
               )}
+            </TiltCard>
             </motion.div>
           ))}
         </div>

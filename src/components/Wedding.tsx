@@ -1,4 +1,5 @@
 import { motion, useInView } from 'framer-motion'
+import TiltCard from './TiltCard'
 import { useRef, useState } from 'react'
 
 import w01 from '../assets/images/wedding/w01.jpg'
@@ -153,22 +154,26 @@ export default function Wedding() {
               initial={{ opacity: 0, scale: 0.97 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.3 + i * 0.04, duration: 0.5 }}
-              style={{ marginBottom: '0.75rem', breakInside: 'avoid', overflow: 'hidden', cursor: 'pointer' }}
-              onClick={() => setLightbox(src)}
-              whileHover={{ scale: 1.02 }}
+              style={{ marginBottom: '0.75rem', breakInside: 'avoid' }}
             >
-              <img
-                src={src}
-                alt=""
-                style={{
-                  width: '100%',
-                  display: 'block',
-                  filter: 'brightness(0.9) contrast(1.05)',
-                  transition: 'filter 0.3s ease',
-                }}
-                onMouseEnter={e => (e.currentTarget.style.filter = 'brightness(1) contrast(1.1)')}
-                onMouseLeave={e => (e.currentTarget.style.filter = 'brightness(0.9) contrast(1.05)')}
-              />
+              <TiltCard
+                intensity={7}
+                onClick={() => setLightbox(src)}
+                style={{ overflow: 'hidden', cursor: 'pointer' }}
+              >
+                <img
+                  src={src}
+                  alt=""
+                  style={{
+                    width: '100%',
+                    display: 'block',
+                    filter: 'brightness(0.9) contrast(1.05)',
+                    transition: 'filter 0.3s ease',
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.filter = 'brightness(1) contrast(1.1)')}
+                  onMouseLeave={e => (e.currentTarget.style.filter = 'brightness(0.9) contrast(1.05)')}
+                />
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>
