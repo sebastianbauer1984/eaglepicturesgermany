@@ -3,7 +3,7 @@ import { useRef } from 'react'
 
 interface EagleDividerProps {
   image: string
-  position?: 'left' | 'right' | 'center'
+  position?: string
   height?: string
   label?: string
   title?: string
@@ -40,7 +40,7 @@ export default function EagleDivider({ image, position = 'center', height = '60v
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: 'center 40%',
+            objectPosition: position,
             filter: `brightness(0.45) contrast(1.2) saturate(1.35) ${flip ? 'scaleX(-1)' : ''}`,
             transform: flip ? 'scaleX(-1)' : 'none',
           }}
