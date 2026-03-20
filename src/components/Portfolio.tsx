@@ -44,7 +44,11 @@ export default function Portfolio() {
         >
           <p className="section-label">Portfolio</p>
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, marginBottom: '1rem' }}>
-            Ausgewählte Projekte
+            <span style={{
+                background: 'linear-gradient(90deg, #FFB800 0%, #FF6600 50%, #CC2200 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}>Ausgewählte</span> Projekte
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '500px', margin: '0 auto', fontFamily: 'Inter', fontWeight: 300 }}>
             Jeder Film ist ein Unikat — konzipiert, produziert und vollendet mit Leidenschaft und Kino-Expertise.

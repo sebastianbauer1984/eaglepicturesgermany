@@ -158,7 +158,11 @@ export default function Services() {
         >
           <p className="section-label">Leistungen</p>
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, marginBottom: '1rem' }}>
-            Jedes Projekt ein Unikat
+            Jedes Projekt ein <span style={{
+                background: 'linear-gradient(90deg, #FFB800 0%, #FF6600 50%, #CC2200 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}>Unikat</span>
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '560px', margin: '0 auto', fontSize: '1rem', fontFamily: 'Inter', fontWeight: 300 }}>
             Von der ersten Idee bis zum fertigen Film — auf Kino-Niveau.

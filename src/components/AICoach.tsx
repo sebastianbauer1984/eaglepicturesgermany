@@ -60,7 +60,11 @@ export default function AICoach() {
           >
             <p className="section-label">Exklusives Angebot</p>
             <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, marginBottom: '1.5rem', lineHeight: 1.2 }}>
-              AI Film Coaching<br />
+              <span style={{
+                background: 'linear-gradient(90deg, #FFB800 0%, #FF6600 50%, #CC2200 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}>AI</span> Film Coaching<br />
               <span style={{ color: '#1863DC' }}>mit Sebastian Bauer</span>
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.65)', lineHeight: 1.9, marginBottom: '1.5rem', fontSize: '1rem', fontFamily: 'Inter', fontWeight: 300 }}>
