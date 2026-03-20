@@ -16,7 +16,7 @@ export const handler: Handler = async (event) => {
     }
 
     await resend.emails.send({
-      from: 'Kontaktformular <kontakt@eaglepictures.de>',
+      from: 'EAGLE PICTURES Kontakt <onboarding@resend.dev>',
       to: 'sebastianbauer@eaglepictures.de',
       replyTo: email,
       subject: `Neue Anfrage: ${service} – ${firstname} ${lastname}`,
