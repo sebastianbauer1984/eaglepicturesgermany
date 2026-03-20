@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import FallingFeathers from './FallingFeathers'
 
@@ -65,6 +65,22 @@ export default function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const textY = useTransform(scrollYProgress, [0, 1], [0, 70])
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.65], [0, 1])
+
+  // Mouse tracking for 3D title
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  const rotateX = useSpring(useTransform(mouseY, [-300, 300], [8, -8]), { stiffness: 100, damping: 30 })
+  const rotateY = useSpring(useTransform(mouseX, [-400, 400], [-10, 10]), { stiffness: 100, damping: 30 })
+
+  function handleMouseMove(e: React.MouseEvent) {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
+    mouseX.set(e.clientX - rect.left - rect.width / 2)
+    mouseY.set(e.clientY - rect.top - rect.height / 2)
+  }
+  function handleMouseLeave() {
+    mouseX.set(0)
+    mouseY.set(0)
+  }
 
   // Auto-advance
   useEffect(() => {
@@ -189,28 +205,49 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {['WE', 'VISUALIZE', 'YOU'].map((word, i) => (
-          <div key={word} style={{ overflow: 'hidden', marginBottom: '0.15rem' }}>
-            <motion.h1
-              initial={{ y: 90 }}
-              animate={{ y: 0 }}
-              transition={{ delay: 0.85 + i * 0.12, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                fontSize: 'clamp(1.8rem, 7vw, 4rem)',
-                fontWeight: 900,
-                lineHeight: 0.93,
-                letterSpacing: '-0.025em',
-                ...(word === 'VISUALIZE' ? {
-                  background: 'linear-gradient(90deg, #FFB800 0%, #FF6600 40%, #CC2200 70%, #8833CC 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                } : {}),
-              }}
-            >
-              {word}
-            </motion.h1>
-          </div>
-        ))}
+        <motion.div
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            perspective: 600,
+            marginBottom: '0.5rem',
+          }}
+        >
+          <motion.div
+            style={{
+              rotateX,
+              rotateY,
+              transformStyle: 'preserve-3d',
+            }}
+          >
+            {(['WE', 'VISUALIZE', 'YOU'] as const).map((word, i) => (
+              <div key={word} style={{ overflow: 'hidden', marginBottom: '0.15rem' }}>
+                <motion.h1
+                  initial={{ y: 90 }}
+                  animate={{ y: 0 }}
+                  transition={{ delay: 0.85 + i * 0.12, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+                  style={{
+                    fontSize: 'clamp(1.8rem, 7vw, 4rem)',
+                    fontWeight: 900,
+                    lineHeight: 0.93,
+                    letterSpacing: '-0.025em',
+                    transformStyle: 'preserve-3d',
+                    ...(word === 'VISUALIZE' ? {
+                      background: 'linear-gradient(90deg, #FFB800 0%, #FF6600 40%, #CC2200 70%, #8833CC 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      filter: 'drop-shadow(2px 4px 12px rgba(255,100,0,0.35))',
+                    } : {
+                      textShadow: '2px 4px 20px rgba(0,0,0,0.5)',
+                    }),
+                  }}
+                >
+                  {word}
+                </motion.h1>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}
