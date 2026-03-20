@@ -53,7 +53,11 @@ export default function Wedding() {
         >
           <p className="section-label">Hochzeitsfilme</p>
           <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 700, lineHeight: 1.15, marginBottom: '1rem' }}>
-            Exklusive Hochzeitsfilme
+            <span style={{
+                background: 'linear-gradient(90deg, #FFB800 0%, #FF6600 50%, #CC2200 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}>Exklusive</span> Hochzeitsfilme
           </h2>
           <p style={{ fontFamily: 'Cinzel', fontSize: 'clamp(1rem, 2vw, 1.4rem)', color: '#FFB800', letterSpacing: '0.04em', marginBottom: '1.5rem' }}>
             für den schönsten Tag deines Lebens
