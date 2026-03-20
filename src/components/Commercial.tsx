@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
+import TiltCard from './TiltCard'
 
 const videos = [
   { id: 'momyVKn8qfY', title: 'Commercial I' },
@@ -74,6 +75,9 @@ export default function Commercial() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
+            >
+            <TiltCard
+              onClick={() => setActiveVideo(activeVideo === v.id ? null : v.id)}
               style={{
                 position: 'relative',
                 aspectRatio: '16/9',
@@ -82,8 +86,6 @@ export default function Commercial() {
                 cursor: 'pointer',
                 border: '1px solid rgba(255,255,255,0.06)',
               }}
-              onClick={() => setActiveVideo(activeVideo === v.id ? null : v.id)}
-              whileHover={{ scale: 1.02 }}
             >
               {activeVideo === v.id ? (
                 <iframe
@@ -158,6 +160,7 @@ export default function Commercial() {
                   </div>
                 </>
               )}
+            </TiltCard>
             </motion.div>
           ))}
         </div>

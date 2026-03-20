@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
+import TiltCard from './TiltCard'
 
 type Platform = 'youtube' | 'vimeo'
 
@@ -101,7 +102,9 @@ export default function Events() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ scale: 1.02 }}
+            >
+            <TiltCard
+              onClick={() => setActiveVideo(activeVideo === card.id ? null : card.id)}
               style={{
                 position: 'relative',
                 aspectRatio: '16/9',
@@ -110,7 +113,6 @@ export default function Events() {
                 border: '1px solid rgba(255,255,255,0.06)',
                 cursor: 'pointer',
               }}
-              onClick={() => setActiveVideo(activeVideo === card.id ? null : card.id)}
             >
               {activeVideo === card.id ? (
                 <iframe
@@ -173,6 +175,7 @@ export default function Events() {
                   </div>
                 </>
               )}
+            </TiltCard>
             </motion.div>
           ))}
         </div>

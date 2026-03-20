@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import MagneticCursor from './components/MagneticCursor'
 import Hero from './components/Hero'
 import EyeSection from './components/EyeSection'
 import Services from './components/Services'
@@ -18,6 +19,7 @@ import kornatiSunset from './assets/images/kornati-sunset.jpg'
 export default function App() {
   return (
     <>
+      <MagneticCursor />
       <Navbar />
       <main>
         <Hero />
