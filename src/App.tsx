@@ -28,7 +28,7 @@ export default function App() {
           position="center"
           height="55vh"
           label="Cinematic Excellence"
-          title="The Eagle Rises"
+          title={<>The Eagle <span style={{ background: 'linear-gradient(90deg, #FFB800 0%, #FF6600 50%, #CC2200 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Rises</span></>}
         />
         <AICoach />
         <EagleDivider

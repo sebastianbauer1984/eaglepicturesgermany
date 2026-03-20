@@ -1,12 +1,13 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import React from 'react'
 
 interface EagleDividerProps {
   image: string
   position?: string
   height?: string
   label?: string
-  title?: string
+  title?: React.ReactNode
   flip?: boolean
 }
 
