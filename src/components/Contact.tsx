@@ -101,6 +101,7 @@ export default function Contact() {
                 { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sebastian-bauer-33a10720/' },
                 { label: 'Instagram', href: 'https://www.instagram.com/eaglepictures_germany/' },
                 { label: 'Facebook', href: 'https://www.facebook.com/eaglepicturesgermany/' },
+                { label: 'YouTube', href: 'https://www.youtube.com/@SebastianBauer' },
               ].map(s => (
                 <a
                   key={s.label}
