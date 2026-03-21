@@ -1,12 +1,12 @@
-import { motion, useAnimation } from 'framer-motion'
-import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
 function EagleSVG() {
   return (
     <svg
       viewBox="0 0 320 110"
-      width="280"
-      height="96"
+      width="320"
+      height="110"
       xmlns="http://www.w3.org/2000/svg"
       style={{ filter: 'drop-shadow(0 4px 24px rgba(255,184,0,0.18))' }}
     >
@@ -29,17 +29,14 @@ function EagleSVG() {
         animate={{ rotate: [-12, 14, -12] }}
         transition={{ duration: 1.6, repeat: Infinity, ease: [0.4, 0, 0.6, 1] }}
       >
-        {/* Upper wing coverts */}
         <path
           d="M152,58 Q118,42 80,34 Q50,28 16,38 Q50,44 90,50 Q122,55 148,60 Z"
           fill="rgba(255,255,255,0.92)"
         />
-        {/* Primary feathers */}
         <path
           d="M148,60 Q118,56 90,50 Q50,44 16,38 Q44,54 84,62 Q116,68 150,64 Z"
           fill="rgba(230,220,200,0.75)"
         />
-        {/* Wing tip feathers */}
         <path d="M16,38 L4,36 L14,44 Z" fill="rgba(255,255,255,0.7)" />
         <path d="M22,35 L10,30 L20,40 Z" fill="rgba(255,255,255,0.65)" />
         <path d="M30,32 L18,27 L27,38 Z" fill="rgba(255,255,255,0.6)" />
@@ -51,17 +48,14 @@ function EagleSVG() {
         animate={{ rotate: [12, -14, 12] }}
         transition={{ duration: 1.6, repeat: Infinity, ease: [0.4, 0, 0.6, 1] }}
       >
-        {/* Upper wing coverts */}
         <path
           d="M168,58 Q202,42 240,34 Q270,28 304,38 Q270,44 230,50 Q198,55 172,60 Z"
           fill="rgba(255,255,255,0.92)"
         />
-        {/* Primary feathers */}
         <path
           d="M172,60 Q202,56 230,50 Q270,44 304,38 Q276,54 236,62 Q204,68 170,64 Z"
           fill="rgba(230,220,200,0.75)"
         />
-        {/* Wing tip feathers */}
         <path d="M304,38 L316,36 L306,44 Z" fill="rgba(255,255,255,0.7)" />
         <path d="M298,35 L310,30 L300,40 Z" fill="rgba(255,255,255,0.65)" />
         <path d="M290,32 L302,27 L293,38 Z" fill="rgba(255,255,255,0.6)" />
@@ -78,53 +72,67 @@ function EagleSVG() {
   )
 }
 
+type FlightState = 'hidden' | 'flying'
+
 export default function FlyingEagle() {
-  const controls = useAnimation()
+  const [state, setState] = useState<FlightState>('hidden')
+  const [pos, setPos] = useState({ x: 2000, y: 120 })
+  const [flightKey, setFlightKey] = useState(0)
   const mounted = useRef(true)
 
   useEffect(() => {
     mounted.current = true
 
-    const scheduleNext = async () => {
-      if (!mounted.current) return
+    const schedule = () => {
+      const delay = 12000 + Math.random() * 15000
+      setTimeout(() => {
+        if (!mounted.current) return
 
-      // Random delay: 18–40 seconds between appearances
-      const delay = 18000 + Math.random() * 22000
-      await new Promise(r => setTimeout(r, delay))
-      if (!mounted.current) return
+        const vw = window.innerWidth
+        const vh = window.innerHeight
+        const startY = vh * (0.08 + Math.random() * 0.18)
 
-      const vw = window.innerWidth
-      const vh = window.innerHeight
-
-      // Random vertical position: upper third of screen
-      const startY = vh * (0.08 + Math.random() * 0.18)
-      const midY   = startY + (Math.random() * 60 - 30)
-      const endY   = startY + (Math.random() * 40 - 20)
-
-      await controls.start({
-        x: [vw + 300, vw * 0.5, -320],
-        y: [startY, midY, endY],
-        opacity: [0, 1, 1, 0],
-        transition: {
-          duration: 22 + Math.random() * 8,
-          ease: 'linear',
-          x: { ease: 'linear' },
-          y: { times: [0, 0.5, 1], ease: 'easeInOut' },
-          opacity: { times: [0, 0.08, 0.88, 1], ease: 'easeInOut' },
-        },
-      })
-
-      if (mounted.current) scheduleNext()
+        // Place eagle just off right edge
+        setPos({ x: vw + 340, y: startY })
+        setState('flying')
+        setFlightKey(k => k + 1)
+      }, delay)
     }
 
-    scheduleNext()
+    schedule()
     return () => { mounted.current = false }
-  }, [controls])
+  }, [])
+
+  const handleAnimationComplete = () => {
+    setState('hidden')
+    // Schedule next flight
+    const delay = 18000 + Math.random() * 20000
+    setTimeout(() => {
+      if (!mounted.current) return
+      const vw = window.innerWidth
+      const vh = window.innerHeight
+      const startY = vh * (0.08 + Math.random() * 0.18)
+      setPos({ x: vw + 340, y: startY })
+      setState('flying')
+      setFlightKey(k => k + 1)
+    }, delay)
+  }
+
+  if (state === 'hidden') return null
+
+  const targetX = -380
 
   return (
     <motion.div
-      animate={controls}
-      initial={{ x: typeof window !== 'undefined' ? window.innerWidth + 300 : 2000, y: 120, opacity: 0 }}
+      key={flightKey}
+      initial={{ x: pos.x, y: pos.y, opacity: 0 }}
+      animate={{ x: targetX, y: pos.y + (Math.random() * 40 - 20), opacity: [0, 1, 1, 0] }}
+      transition={{
+        duration: 28,
+        ease: 'linear',
+        opacity: { times: [0, 0.05, 0.92, 1], ease: 'easeInOut', duration: 28 },
+      }}
+      onAnimationComplete={handleAnimationComplete}
       style={{
         position: 'fixed',
         top: 0,
