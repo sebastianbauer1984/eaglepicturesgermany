@@ -102,6 +102,7 @@ export default function Contact() {
                 { label: 'Instagram', href: 'https://www.instagram.com/eaglepictures_germany/' },
                 { label: 'Facebook', href: 'https://www.facebook.com/eaglepicturesgermany/' },
                 { label: 'YouTube', href: 'https://www.youtube.com/@SebastianBauer' },
+                { label: 'Vimeo', href: 'https://vimeo.com/eaglepicturesgermany' },
               ].map(s => (
                 <a
                   key={s.label}
