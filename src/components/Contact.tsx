@@ -98,10 +98,9 @@ export default function Contact() {
             {/* Social links */}
             <div style={{ display: 'flex', gap: '1rem', marginTop: '3rem' }}>
               {[
-                { label: 'LinkedIn', href: 'https://linkedin.com' },
-                { label: 'Facebook', href: 'https://facebook.com' },
-                { label: 'Instagram', href: 'https://instagram.com' },
-                { label: 'YouTube', href: 'https://youtube.com' },
+                { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sebastian-bauer-33a10720/' },
+                { label: 'Instagram', href: 'https://www.instagram.com/eaglepictures_germany/' },
+                { label: 'Facebook', href: 'https://www.facebook.com/eaglepicturesgermany/' },
               ].map(s => (
                 <a
                   key={s.label}
