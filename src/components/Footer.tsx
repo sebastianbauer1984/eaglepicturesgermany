@@ -131,6 +131,8 @@ export default function Footer() {
               <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem', fontWeight: 500 }}>Kontakt</p>
               <p>Telefon: +49 173 714 2657</p>
               <p>E-Mail: sebastianbauer@eaglepictures.de</p>
+              <p style={{ marginTop: '1rem', color: 'rgba(255,255,255,0.5)', fontWeight: 500 }}>Umsatzsteuer-ID</p>
+              <p>UID Nr. DE248799683</p>
             </div>
             <div>
               <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem', fontWeight: 500 }}>Haftungsausschluss</p>
