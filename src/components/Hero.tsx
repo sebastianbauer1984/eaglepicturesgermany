@@ -18,6 +18,8 @@ import sebastianCamera from '../assets/images/sebastian-camera.jpg'
 import makingOf from '../assets/images/making-of.jpg'
 import kornatiAerial from '../assets/images/kornati-aerial.jpg'
 import award from '../assets/images/award.jpg'
+import aiEye from '../assets/images/ai-eye.jpg'
+import aiHeart from '../assets/images/ai-heart.jpg'
 
 const slides = [
   {
@@ -54,6 +56,20 @@ const slides = [
     caption: 'Best Drone · Sebastian Bauer',
     objectPos: 'center center',
     filter: 'brightness(0.72) contrast(1.1) saturate(0.95)',
+  },
+  {
+    img: aiEye,
+    label: 'AI Film Production',
+    caption: 'We Visualize You',
+    objectPos: 'center center',
+    filter: 'brightness(0.8) contrast(1.15) saturate(1.1)',
+  },
+  {
+    img: aiHeart,
+    label: 'AI Film Production',
+    caption: 'Eagle Pictures® · Innovation',
+    objectPos: 'center center',
+    filter: 'brightness(0.78) contrast(1.15) saturate(1.1)',
   },
 ]
 

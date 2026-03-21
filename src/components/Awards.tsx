@@ -3,8 +3,7 @@ import { useRef, useState } from 'react'
 
 import awardParis from '../assets/images/awards/award-paris.jpg'
 import awardLondon from '../assets/images/awards/award-london.jpg'
-import awardAiEye from '../assets/images/awards/award-ai-eye.jpg'
-import awardAiHeart from '../assets/images/awards/award-ai-heart.jpg'
+
 import award03 from '../assets/images/awards/award-03.jpg'
 import awardBestDrone from '../assets/images/awards/award-best-drone.jpg'
 import awardImg5630 from '../assets/images/awards/award-img5630.jpg'
@@ -25,8 +24,6 @@ const awards = [
   { src: awardHoplove,     caption: 'Internationale Auszeichnung' },
   { src: awardImg0222,     caption: 'Internationale Auszeichnung' },
   { src: awardImg1397,     caption: 'Internationale Auszeichnung' },
-  { src: awardAiEye,       caption: 'Internationale Auszeichnung' },
-  { src: awardAiHeart,     caption: 'Internationale Auszeichnung' },
 ]
 
 export default function Awards() {
