@@ -1,39 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://eaglepictures.de/</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://eaglepictures.de/#services</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://eaglepictures.de/#wedding</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://eaglepictures.de/#portfolio</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eaglepictures.de/#about</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eaglepictures.de/#contact</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+
+    <image:image>
+      <image:loc>https://eaglepictures.de/og-image.jpg</image:loc>
+      <image:title>EAGLE PICTURES® – German Film Production | Sebastian Bauer</image:title>
+      <image:caption>Professionelle Filmproduktion am Bodensee – Hochzeitsfilme, Imagefilme, Werbefilme auf Kino-Niveau</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://eaglepictures.de/icon-512.png</image:loc>
+      <image:title>EAGLE PICTURES® Logo</image:title>
+      <image:caption>EAGLE PICTURES® – German Film Production Logo</image:caption>
+    </image:image>
+
   </url>
 </urlset>
