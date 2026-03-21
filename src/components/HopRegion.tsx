@@ -1,5 +1,79 @@
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState } from 'react'
+
+const galleryImages = [
+  { src: '/hoplove/bodensee.jpg', alt: 'Bodensee Luftaufnahme', caption: 'Bodensee · Heimat des Tettnanger Hopfens', wide: true },
+  { src: '/hoplove/drone.jpg', alt: 'Hopfenfelder aus der Vogelperspektive', caption: 'Hopfenfelder · Tettnang', wide: true },
+  { src: '/hoplove/hop-02.png', alt: 'Hopfenzapfen Nahaufnahme', caption: 'Das grüne Gold', wide: false },
+  { src: '/hoplove/hop-01.png', alt: 'Hopfen Detail', caption: 'Reinheit der Natur', wide: false },
+  { src: '/hoplove/in-action.jpg', alt: 'Violinistin im Konzerthaus', caption: 'Musik trifft Natur · HopLove', wide: true },
+]
+
+function ParallaxImage({ src, alt, caption, wide, index }: { src: string; alt: string; caption: string; wide: boolean; index: number }) {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
+  const y = useTransform(scrollYProgress, [0, 1], [30, -30])
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+      style={{
+        gridColumn: wide ? 'span 2' : 'span 1',
+        position: 'relative',
+        overflow: 'hidden',
+        aspectRatio: wide ? '21/9' : '4/5',
+        background: '#0a0a0a',
+      }}
+    >
+      <motion.img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        style={{
+          position: 'absolute', inset: '-5%',
+          width: '110%', height: '110%',
+          objectFit: 'cover',
+          filter: 'brightness(0.85) saturate(1.1)',
+          y,
+        }}
+      />
+      {/* Cinematic overlay */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 40%, transparent 100%)',
+      }} />
+      {/* Caption */}
+      <motion.p
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+        style={{
+          position: 'absolute', bottom: '1.25rem', left: '1.5rem', right: '1.5rem',
+          fontFamily: 'Cinzel', fontSize: '0.6rem', letterSpacing: '0.2em',
+          textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)',
+          fontWeight: 400,
+        }}
+      >{caption}</motion.p>
+      {/* Hover shine */}
+      <motion.div
+        whileHover={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ duration: 0.4 }}
+        style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(135deg, rgba(255,184,0,0.06) 0%, transparent 60%)',
+          pointerEvents: 'none',
+        }}
+      />
+    </motion.div>
+  )
+}
 
 const newSeries = [
   { id: 'Yvc2M2wgX5o', title: 'Tettnanger Hopfenhoheit 2024 · Teil I' },
@@ -105,6 +179,30 @@ export default function HopRegion() {
           </p>
         </motion.div>
 
+        {/* Foto-Galerie */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          style={{ marginBottom: '5rem' }}
+        >
+          <p style={{
+            fontFamily: 'Cinzel', fontSize: '0.7rem', letterSpacing: '0.25em',
+            textTransform: 'uppercase', color: 'rgba(255,184,0,0.6)', marginBottom: '1.5rem',
+          }}>
+            Impressionen · Behind the Scenes
+          </p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '6px',
+          }}>
+            {galleryImages.map((img, i) => (
+              <ParallaxImage key={img.src} {...img} index={i} />
+            ))}
+          </div>
+        </motion.div>
+
         {/* Neue Reihe: 3 Videos */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -178,6 +276,20 @@ export default function HopRegion() {
           }
           #hopregion .container > div > div[style*="repeat(3, 1fr)"] {
             grid-template-columns: 1fr !important;
+          }
+          #hopregion .container > div > div[style*="repeat(4, 1fr)"] {
+            grid-template-columns: 1fr 1fr !important;
+          }
+          #hopregion .container > div > div[style*="repeat(4, 1fr)"] > div[style*="span 2"] {
+            grid-column: span 2 !important;
+          }
+        }
+        @media (max-width: 600px) {
+          #hopregion .container > div > div[style*="repeat(4, 1fr)"] {
+            grid-template-columns: 1fr !important;
+          }
+          #hopregion .container > div > div[style*="repeat(4, 1fr)"] > div[style*="span 2"] {
+            grid-column: span 1 !important;
           }
         }
       `}</style>
