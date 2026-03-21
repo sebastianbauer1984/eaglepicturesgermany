@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import eagleImg from '../assets/images/eagle-schema.png'
+import eagleImg from '../assets/images/eagle-logo.png'
 
 type FlightState = 'hidden' | 'flying'
 
@@ -15,7 +15,7 @@ export default function FlyingEagle() {
     const vw = window.innerWidth
     const vh = window.innerHeight
     const startY = vh * (0.04 + Math.random() * 0.22)
-    setPos({ x: vw + 560, y: startY })
+    setPos({ x: vw + 380, y: startY })
     setState('flying')
     setFlightKey(k => k + 1)
   }
@@ -36,7 +36,7 @@ export default function FlyingEagle() {
 
   if (state === 'hidden') return null
 
-  const endX = -560
+  const endX = -380
 
   return (
     <motion.div
@@ -68,7 +68,7 @@ export default function FlyingEagle() {
         src={eagleImg}
         alt=""
         style={{
-          width: '480px',
+          width: '340px',
           height: 'auto',
           filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.5)) drop-shadow(0 2px 8px rgba(255,184,0,0.12))',
           display: 'block',
