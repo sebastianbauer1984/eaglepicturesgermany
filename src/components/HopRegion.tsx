@@ -10,7 +10,7 @@ const newSeries = [
 const previousYears = [
   { id: 'rwrjR6bOaFA', title: 'Virtueller Hopfenwandertag 2020' },
   { id: 'BR3W1r6mLzw', title: 'Tettnanger Hopfenhoheit · Vorjahre' },
-  { id: 'njW7KFvhIjc', title: 'Regionale Produktion · Bodensee' },
+  { id: 'njW7KFvhIjc', title: 'Hopfenwandertag 2022' },
 ]
 
 function YouTubeCard({ id, title, active, onActivate }: { id: string; title: string; active: boolean; onActivate: () => void }) {
@@ -36,12 +36,12 @@ function YouTubeCard({ id, title, active, onActivate }: { id: string; title: str
       ) : (
         <>
           <img
-            src={`https://img.youtube.com/vi/${id}/sddefault.jpg`}
+            src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
             alt={title}
             loading="lazy"
             decoding="async"
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.6)' }}
-            onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${id}/hqdefault.jpg` }}
+            onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${id}/mqdefault.jpg` }}
           />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%)' }} />
           <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
