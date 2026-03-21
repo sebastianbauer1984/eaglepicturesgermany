@@ -10,6 +10,25 @@ import makingOfSunset from '../assets/images/making-of-violin.jpg'
 import makingOfGoats from '../assets/images/making-of-goats.jpg'
 import makingOfRestaurant from '../assets/images/making-of-restaurant.jpg'
 import makingOfOutdoor from '../assets/images/making-of-outdoor.jpg'
+import makingOfFpvDrone from '../assets/images/making-of-fpv-drone.jpg'
+import makingOfCameraRig from '../assets/images/making-of-camera-rig.jpg'
+import makingOfTheaterViolin from '../assets/images/making-of-theater-violin.jpg'
+import makingOfDavinci from '../assets/images/making-of-davinci.jpg'
+import makingOfFactory from '../assets/images/making-of-factory.jpg'
+import makingOfRedCameraField from '../assets/images/making-of-red-camera-field.jpg'
+import makingOfRedCameraLindau from '../assets/images/making-of-red-camera-lindau.jpg'
+import makingOfRedCameraSunset from '../assets/images/making-of-red-camera-sunset.jpg'
+import makingOfTheaterFilming from '../assets/images/making-of-theater-filming.jpg'
+import makingOfInterviewMale from '../assets/images/making-of-interview-male.jpg'
+import makingOfInterviewFemale from '../assets/images/making-of-interview-female.jpg'
+import makingOfSoundStudio from '../assets/images/making-of-sound-studio.jpg'
+import makingOfMixingConsole from '../assets/images/making-of-mixing-console.jpg'
+import makingOfViolinRehearsal from '../assets/images/making-of-violin-rehearsal.jpg'
+import makingOfViolinStudio from '../assets/images/making-of-violin-studio.jpg'
+import makingOfRedAward2026 from '../assets/images/making-of-red-award-2026.jpg'
+import makingOfRedMention2025 from '../assets/images/making-of-red-mention-2025.jpg'
+import makingOfKornatiSunset from '../assets/images/making-of-kornati-sunset.jpg'
+import makingOfKornatiRestaurant from '../assets/images/making-of-kornati-restaurant.jpg'
 
 const photos = [
   { src: makingOfSet, caption: 'On Set · hoplove' },
@@ -20,6 +39,25 @@ const photos = [
   { src: makingOfGoats, caption: 'Kornati Islands · Wildlife' },
   { src: makingOfRestaurant, caption: 'Kornati Islands · On Location' },
   { src: makingOfOutdoor, caption: 'Kornati Islands · Outdoor' },
+  { src: makingOfFpvDrone, caption: 'FPV Drohne · On Set' },
+  { src: makingOfCameraRig, caption: 'Komodo 6K · Ronin Setup' },
+  { src: makingOfTheaterViolin, caption: 'Theater · hoplove' },
+  { src: makingOfDavinci, caption: 'DaVinci Resolve · Schnitt' },
+  { src: makingOfFactory, caption: 'Imagefilm · On Location' },
+  { src: makingOfRedCameraField, caption: 'RED Komodo · Bodensee' },
+  { src: makingOfRedCameraLindau, caption: 'RED Camera · Lindau' },
+  { src: makingOfRedCameraSunset, caption: 'RED Camera · Sonnenuntergang' },
+  { src: makingOfTheaterFilming, caption: 'hoplove · Theater Wien' },
+  { src: makingOfInterviewMale, caption: 'hoplove · Interview' },
+  { src: makingOfInterviewFemale, caption: 'hoplove · Interview' },
+  { src: makingOfSoundStudio, caption: 'Sound Design · Studio' },
+  { src: makingOfMixingConsole, caption: 'Musikkomposition · Mischpult' },
+  { src: makingOfViolinRehearsal, caption: 'hoplove · Julia Clara Frisch' },
+  { src: makingOfViolinStudio, caption: 'hoplove · Studioaufnahme' },
+  { src: makingOfRedAward2026, caption: 'RED Movie Awards · Annual Selection 2026' },
+  { src: makingOfRedMention2025, caption: 'RED Movie Awards · Honorable Mention 2025' },
+  { src: makingOfKornatiSunset, caption: 'Kornati Islands · Filmteam' },
+  { src: makingOfKornatiRestaurant, caption: 'Kornati Islands · On Location' },
 ]
 
 const qualities = [
@@ -227,7 +265,7 @@ export default function About() {
           </h3>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
             gap: '0.75rem',
           }}>
             {photos.map((photo, i) => (
