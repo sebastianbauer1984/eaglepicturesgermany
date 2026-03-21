@@ -8,23 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="EAGLE PICTURES® – German Film Production by Sebastian Bauer. Cinema-level film production, wedding films, commercial films, AI films and film coaching." />
     <title>EAGLE PICTURES® – German Film Production | We Visualize You</title>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZVY685VGQ"></script>
+
+    <!-- Google Analytics – deferred so it doesn't block render -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-4ZVY685VGQ');
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-4ZVY685VGQ';
+        s.async = true;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4ZVY685VGQ');
+      });
     </script>
 
-    <!-- Preload critical hero image -->
-    <link rel="preload" as="image" href="/src/assets/images/sebastian-portrait.jpg" fetchpriority="high" />
-
-    <!-- Fonts with display=swap to prevent render blocking -->
+    <!-- DNS prefetch for external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+    <!-- Fonts: non-blocking -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
 
     <!-- SEO & Open Graph -->
     <meta property="og:title" content="EAGLE PICTURES® – German Film Production" />

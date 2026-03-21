@@ -186,8 +186,12 @@ interface FallingFeathersProps {
 }
 
 export default function FallingFeathers({ count = 12, zIndex = 0, opacity = 1, minSize = 55, maxSize = 110 }: FallingFeathersProps) {
+  // Disable on mobile – too expensive for low-end devices
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+  const effectiveCount = isMobile ? 0 : count
+
   const feathers = useMemo(() =>
-    Array.from({ length: count }, (_, i) => {
+    Array.from({ length: effectiveCount }, (_, i) => {
       const width = minSize + (i % 5) * ((maxSize - minSize) / 4)
       return {
         id: i,
@@ -201,7 +205,7 @@ export default function FallingFeathers({ count = 12, zIndex = 0, opacity = 1, m
         swayX: 25 + (i % 4) * 18,
       }
     }),
-  [count, minSize, maxSize])
+  [effectiveCount, minSize, maxSize])
 
   return (
     <div style={{

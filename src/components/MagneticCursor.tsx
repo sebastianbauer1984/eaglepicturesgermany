@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 export default function MagneticCursor() {
+  // No custom cursor on touch devices
+  if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return null
+
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
   const [clicked, setClicked] = useState(false)

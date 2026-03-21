@@ -1,52 +1,67 @@
+import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
-import MagneticCursor from './components/MagneticCursor'
 import Hero from './components/Hero'
-import EyeSection from './components/EyeSection'
-import Services from './components/Services'
-import EagleDivider from './components/EagleDivider'
-import AICoach from './components/AICoach'
-import Portfolio from './components/Portfolio'
-import About from './components/About'
-import Wedding from './components/Wedding'
-import Commercial from './components/Commercial'
-import Tutorials from './components/Tutorials'
-import Events from './components/Events'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
 import sebastianDrone from './assets/images/sebastian-drone.jpg'
 import kornatiSunset from './assets/images/kornati-sunset.jpg'
+
+// Lazy load everything below the fold
+const MagneticCursor = lazy(() => import('./components/MagneticCursor'))
+const EyeSection = lazy(() => import('./components/EyeSection'))
+const Services = lazy(() => import('./components/Services'))
+const EagleDivider = lazy(() => import('./components/EagleDivider'))
+const AICoach = lazy(() => import('./components/AICoach'))
+const Portfolio = lazy(() => import('./components/Portfolio'))
+const About = lazy(() => import('./components/About'))
+const Wedding = lazy(() => import('./components/Wedding'))
+const Commercial = lazy(() => import('./components/Commercial'))
+const Tutorials = lazy(() => import('./components/Tutorials'))
+const Events = lazy(() => import('./components/Events'))
+const Contact = lazy(() => import('./components/Contact'))
+const Footer = lazy(() => import('./components/Footer'))
+
+const riseStyle = {
+  background: 'linear-gradient(90deg, #FFB800 0%, #FF6600 50%, #CC2200 100%)',
+  WebkitBackgroundClip: 'text' as const,
+  WebkitTextFillColor: 'transparent' as const,
+}
 
 export default function App() {
   return (
     <>
-      <MagneticCursor />
+      <Suspense fallback={null}>
+        <MagneticCursor />
+      </Suspense>
       <Navbar />
       <main>
         <Hero />
-        <EyeSection />
-        <Services />
-        <EagleDivider
-          image={sebastianDrone}
-          position="center"
-          height="55vh"
-          label="Cinematic Excellence"
-          title={<>The Eagle <span style={{ background: 'linear-gradient(90deg, #FFB800 0%, #FF6600 50%, #CC2200 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Rises</span></>}
-        />
-        <AICoach />
-        <EagleDivider
-          image={kornatiSunset}
-          position="center top"
-          height="65vh"
-        />
-        <Portfolio />
-        <Wedding />
-        <Commercial />
-        <Tutorials />
-        <Events />
-        <About />
-        <Contact />
+        <Suspense fallback={<div style={{ height: '100vh', background: '#000' }} />}>
+          <EyeSection />
+          <Services />
+          <EagleDivider
+            image={sebastianDrone}
+            position="center"
+            height="55vh"
+            label="Cinematic Excellence"
+            title={<>The Eagle <span style={riseStyle}>Rises</span></>}
+          />
+          <AICoach />
+          <EagleDivider
+            image={kornatiSunset}
+            position="center top"
+            height="65vh"
+          />
+          <Portfolio />
+          <Wedding />
+          <Commercial />
+          <Tutorials />
+          <Events />
+          <About />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </>
   )
 }
