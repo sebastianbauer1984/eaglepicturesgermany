@@ -222,7 +222,7 @@ export default function About() {
             {[
               { year: '2005–2006', title: 'Digital Film & Animation', school: 'SAE Institute' },
               { year: '2006–2008', title: 'Film & Distribution', school: 'ARRI · Concorde Filmverleih München' },
-              { year: '2014–2016', title: 'Betriebswirtschaft', school: 'Hugo-Eckener-Schule · Staatlich geprüfter Betriebswirt' },
+              { year: '2014–2016', title: 'Studium Betriebswirtschaft (Schwerpunkt Marketing)', school: 'Hugo-Eckener-Schule · Staatlich geprüfter Betriebswirt' },
             ].map((e, i) => (
               <motion.div
                 key={e.title}
