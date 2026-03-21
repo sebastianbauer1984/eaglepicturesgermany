@@ -36,7 +36,9 @@ export default function EagleDivider({ image, position = 'center', height = '60v
         <img
           src={image}
           alt=""
-          aria-hidden
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
           style={{
             width: '100%',
             height: '100%',

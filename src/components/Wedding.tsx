@@ -99,6 +99,8 @@ export default function Wedding() {
                   <img
                     src={`https://vumbnail.com/${v.id}.jpg`}
                     alt={v.title}
+                    loading="lazy"
+                    decoding="async"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.6)' }}
                     onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
                   />
@@ -163,7 +165,9 @@ export default function Wedding() {
               >
                 <img
                   src={src}
-                  alt=""
+                  alt={`Hochzeitsfilm Galeriebild ${i + 1}`}
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: '100%',
                     display: 'block',
@@ -206,7 +210,7 @@ export default function Wedding() {
             padding: '2rem', cursor: 'zoom-out',
           }}
         >
-          <img src={lightbox} alt="" style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain' }} />
+          <img src={lightbox} alt="Hochzeitsfilm Vollbild" decoding="async" style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain' }} />
           <button
             onClick={() => setLightbox(null)}
             style={{ position: 'absolute', top: '1.5rem', right: '2rem', background: 'none', border: 'none', color: '#fff', fontSize: '2rem', cursor: 'pointer' }}

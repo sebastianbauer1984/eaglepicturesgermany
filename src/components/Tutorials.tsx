@@ -99,6 +99,8 @@ export default function Tutorials() {
                       <img
                         src={`https://img.youtube.com/vi/${card.id}/maxresdefault.jpg`}
                         alt={card.title}
+                        loading="lazy"
+                        decoding="async"
                         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.6)' }}
                         onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${card.id}/hqdefault.jpg` }}
                       />

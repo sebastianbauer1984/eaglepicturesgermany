@@ -297,6 +297,7 @@ export default function Hero() {
           <button
             key={i}
             onClick={() => goTo(i)}
+            aria-label={`Slide ${i + 1}`}
             style={{
               width: i === current ? '24px' : '6px',
               height: '6px',
@@ -349,7 +350,9 @@ export default function Hero() {
             <div key={i} style={{ width: '160px', height: '120px', flexShrink: 0, margin: '0 2rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <img
                 src={src}
-                alt="Award Laurel"
+                alt="Festival Award Laurel"
+                loading="lazy"
+                decoding="async"
                 style={{
                   maxWidth: '100%',
                   maxHeight: '100%',

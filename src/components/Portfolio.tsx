@@ -113,6 +113,8 @@ function ProjectCard({
         <motion.img
           src={project.image}
           alt={project.title}
+          loading="lazy"
+          decoding="async"
           variants={{ hover: { scale: 1.05 } }}
           transition={{ duration: 0.7 }}
           style={{

@@ -100,6 +100,8 @@ export default function Commercial() {
                   <img
                     src={`https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`}
                     alt={v.title}
+                    loading="lazy"
+                    decoding="async"
                     style={{
                       position: 'absolute', inset: 0,
                       width: '100%', height: '100%',

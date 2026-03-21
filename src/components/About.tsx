@@ -249,6 +249,8 @@ export default function About() {
                 <img
                   src={photo.src}
                   alt={photo.caption}
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: '100%',
                     height: '100%',
@@ -302,6 +304,7 @@ export default function About() {
             animate={{ scale: 1 }}
             src={photos[lightbox].src}
             alt={photos[lightbox].caption}
+            decoding="async"
             style={{
               maxWidth: '90vw',
               maxHeight: '85vh',

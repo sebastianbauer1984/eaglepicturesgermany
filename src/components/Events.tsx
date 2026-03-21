@@ -127,6 +127,8 @@ export default function Events() {
                     <img
                       src={getThumbnail(card)}
                       alt={card.title}
+                      loading="lazy"
+                      decoding="async"
                       style={{
                         position: 'absolute', inset: 0,
                         width: '100%', height: '100%',
