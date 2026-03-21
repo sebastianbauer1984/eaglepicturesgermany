@@ -69,6 +69,50 @@ export default function Wedding() {
           </p>
         </motion.div>
 
+        {/* Featured YouTube Video */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          style={{ marginBottom: '1.5rem' }}
+        >
+          <div
+            style={{ position: 'relative', aspectRatio: '16/9', background: '#0a0a0a', overflow: 'hidden', cursor: 'pointer', border: '1px solid rgba(255,184,0,0.2)', boxShadow: '0 0 60px rgba(255,184,0,0.08)' }}
+            onClick={() => setActiveVideo(activeVideo === 'qIbdeh-ajyE' ? null : 'qIbdeh-ajyE')}
+          >
+            {activeVideo === 'qIbdeh-ajyE' ? (
+              <iframe
+                src="https://www.youtube.com/embed/qIbdeh-ajyE?autoplay=1&rel=0&modestbranding=1"
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <>
+                <img
+                  src="https://img.youtube.com/vi/qIbdeh-ajyE/maxresdefault.jpg"
+                  alt="Hochzeitsfilm Showreel – EAGLE PICTURES®"
+                  loading="lazy"
+                  decoding="async"
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.65)' }}
+                  onError={(e) => { (e.target as HTMLImageElement).src = 'https://img.youtube.com/vi/qIbdeh-ajyE/hqdefault.jpg' }}
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)' }} />
+                <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    style={{ width: '72px', height: '72px', borderRadius: '50%', background: 'rgba(255,184,0,0.95)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.6rem', paddingLeft: '6px', boxShadow: '0 0 50px rgba(255,184,0,0.4)' }}
+                  >▶</motion.div>
+                  <p style={{ fontFamily: 'Cinzel', fontSize: '0.8rem', color: 'rgba(255,255,255,0.8)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Hochzeitsfilm Showreel</p>
+                </div>
+                <div style={{ position: 'absolute', top: '1rem', left: '1rem', padding: '0.3rem 0.8rem', background: 'rgba(255,184,0,0.15)', border: '1px solid rgba(255,184,0,0.4)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'Inter', color: '#FFB800', fontWeight: 700 }}>
+                  Featured
+                </div>
+              </>
+            )}
+          </div>
+        </motion.div>
+
         {/* Videos */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
