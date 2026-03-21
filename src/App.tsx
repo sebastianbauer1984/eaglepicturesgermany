@@ -20,6 +20,7 @@ const Tutorials = lazy(() => import('./components/Tutorials'))
 const Events = lazy(() => import('./components/Events'))
 const Contact = lazy(() => import('./components/Contact'))
 const Footer = lazy(() => import('./components/Footer'))
+const FlyingEagle = lazy(() => import('./components/FlyingEagle'))
 
 const riseStyle = {
   background: 'linear-gradient(90deg, #FFB800 0%, #FF6600 50%, #CC2200 100%)',
@@ -65,6 +66,9 @@ export default function App() {
       </main>
       <Suspense fallback={null}>
         <Footer />
+      </Suspense>
+      <Suspense fallback={null}>
+        <FlyingEagle />
       </Suspense>
     </>
   )
