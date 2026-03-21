@@ -49,7 +49,6 @@ const photos = [
   { src: makingOfRedCameraSunset, caption: 'RED Camera · Sonnenuntergang' },
   { src: makingOfTheaterFilming, caption: 'hoplove · Theater Wien' },
   { src: makingOfInterviewMale, caption: 'hoplove · Interview' },
-  { src: makingOfInterviewFemale, caption: 'hoplove · Interview' },
   { src: makingOfSoundStudio, caption: 'Sound Design · Studio' },
   { src: makingOfMixingConsole, caption: 'Musikkomposition · Mischpult' },
   { src: makingOfViolinRehearsal, caption: 'hoplove · Julia Clara Frisch' },
@@ -57,7 +56,6 @@ const photos = [
   { src: makingOfRedAward2026, caption: 'RED Movie Awards · Annual Selection 2026' },
   { src: makingOfRedMention2025, caption: 'RED Movie Awards · Honorable Mention 2025' },
   { src: makingOfKornatiSunset, caption: 'Kornati Islands · Filmteam' },
-  { src: makingOfKornatiRestaurant, caption: 'Kornati Islands · On Location' },
 ]
 
 const qualities = [
