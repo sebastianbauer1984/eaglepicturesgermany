@@ -68,7 +68,7 @@ export default function Awards() {
           <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', marginTop: '3rem', flexWrap: 'wrap' }}>
             {[
               { v: '30+', l: 'Festivalpreise' },
-              { v: '24', l: 'Festivals weltweit' },
+              { v: '150+', l: 'Festivals weltweit' },
               { v: '3', l: 'Kontinente' },
             ].map(s => (
               <div key={s.l} style={{ textAlign: 'center' }}>
