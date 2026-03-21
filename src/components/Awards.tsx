@@ -15,18 +15,18 @@ import awardCertificate from '../assets/images/awards/award-certificate.jpg'
 import awardImg4203 from '../assets/images/awards/award-img4203.jpg'
 
 const awards = [
-  { src: awardBestDrone,   caption: 'Best Drone · RED Movie Awards' },
-  { src: awardParis,       caption: 'Paris Film Awards · Certificate' },
-  { src: awardLondon,      caption: 'London Movie Awards · Certificate' },
-  { src: awardCertificate, caption: 'Festival Award · Certificate' },
-  { src: awardImg5630,     caption: 'Festival Award · Certificate' },
-  { src: awardImg4203,     caption: 'Festival Award · Certificate' },
-  { src: award03,          caption: 'Festival Award · hoplove' },
-  { src: awardHoplove,     caption: 'hoplove · Festival' },
-  { src: awardImg0222,     caption: 'Festival Award · hoplove' },
-  { src: awardImg1397,     caption: 'Festival Award · hoplove' },
-  { src: awardAiEye,       caption: 'AI Film Production · Eagle Pictures' },
-  { src: awardAiHeart,     caption: 'AI Film Production · Eagle Pictures' },
+  { src: awardBestDrone,   caption: 'Internationale Auszeichnung' },
+  { src: awardParis,       caption: 'Internationales Zertifikat' },
+  { src: awardLondon,      caption: 'Internationales Zertifikat' },
+  { src: awardCertificate, caption: 'Internationales Zertifikat' },
+  { src: awardImg5630,     caption: 'Internationales Zertifikat' },
+  { src: awardImg4203,     caption: 'Internationales Zertifikat' },
+  { src: award03,          caption: 'Internationale Auszeichnung' },
+  { src: awardHoplove,     caption: 'Internationale Auszeichnung' },
+  { src: awardImg0222,     caption: 'Internationale Auszeichnung' },
+  { src: awardImg1397,     caption: 'Internationale Auszeichnung' },
+  { src: awardAiEye,       caption: 'Internationale Auszeichnung' },
+  { src: awardAiHeart,     caption: 'Internationale Auszeichnung' },
 ]
 
 export default function Awards() {
