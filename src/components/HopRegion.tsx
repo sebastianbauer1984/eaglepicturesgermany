@@ -8,8 +8,9 @@ const newSeries = [
 ]
 
 const previousYears = [
-  { id: 'rwrjR6bOaFA', title: 'Tettnanger Hopfenhoheit · Vorjahre I' },
-  { id: 'BR3W1r6mLzw', title: 'Tettnanger Hopfenhoheit · Vorjahre II' },
+  { id: 'rwrjR6bOaFA', title: 'Virtueller Hopfenwandertag 2020' },
+  { id: 'BR3W1r6mLzw', title: 'Tettnanger Hopfenhoheit · Vorjahre' },
+  { id: 'njW7KFvhIjc', title: 'Regionale Produktion · Bodensee' },
 ]
 
 function YouTubeCard({ id, title, active, onActivate }: { id: string; title: string; active: boolean; onActivate: () => void }) {
@@ -142,7 +143,7 @@ export default function HopRegion() {
           }}>
             Aus vergangenen Jahren
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', maxWidth: '780px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
             {previousYears.map((v, i) => (
               <motion.div
                 key={v.id}
@@ -175,9 +176,8 @@ export default function HopRegion() {
           #hopregion .container > div > div[style*="repeat(3"] {
             grid-template-columns: 1fr !important;
           }
-          #hopregion .container > div > div[style*="repeat(2"] {
+          #hopregion .container > div > div[style*="repeat(3, 1fr)"] {
             grid-template-columns: 1fr !important;
-            max-width: 100% !important;
           }
         }
       `}</style>
