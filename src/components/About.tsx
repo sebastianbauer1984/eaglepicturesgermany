@@ -13,7 +13,7 @@ import makingOfOutdoor from '../assets/images/making-of-outdoor.jpg'
 
 const photos = [
   { src: makingOfSet, caption: 'On Set · hoplove' },
-  { src: makingOfTheater, caption: 'Theaterkulisse · Wien' },
+  { src: makingOfTheater, caption: 'Theaterkulisse · Augsburg' },
   { src: makingOfSofa, caption: 'Making of · Director' },
   { src: makingOfBoat, caption: 'Kornati Islands · Drone' },
   { src: makingOfSunset, caption: 'hoplove · Julia Clara Frisch' },
