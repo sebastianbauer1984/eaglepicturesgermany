@@ -35,7 +35,7 @@ function YouTubeCard({ id, title, active, onActivate }: { id: string; title: str
       ) : (
         <>
           <img
-            src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
+            src={`https://img.youtube.com/vi/${id}/sddefault.jpg`}
             alt={title}
             loading="lazy"
             decoding="async"
