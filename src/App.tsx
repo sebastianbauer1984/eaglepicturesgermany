@@ -11,6 +11,7 @@ const Services = lazy(() => import('./components/Services'))
 const EagleDivider = lazy(() => import('./components/EagleDivider'))
 const AICoach = lazy(() => import('./components/AICoach'))
 const Portfolio = lazy(() => import('./components/Portfolio'))
+const HopRegion = lazy(() => import('./components/HopRegion'))
 const About = lazy(() => import('./components/About'))
 const Wedding = lazy(() => import('./components/Wedding'))
 const Commercial = lazy(() => import('./components/Commercial'))
@@ -51,6 +52,7 @@ export default function App() {
             height="65vh"
           />
           <Portfolio />
+          <HopRegion />
           <Wedding />
           <Commercial />
           <Tutorials />
