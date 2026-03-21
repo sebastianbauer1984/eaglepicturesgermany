@@ -106,7 +106,7 @@ export default function FlyingEagle() {
         y: [startY, midY, endY],
         opacity: [0, 1, 1, 0],
         transition: {
-          duration: 9 + Math.random() * 4,
+          duration: 22 + Math.random() * 8,
           ease: 'linear',
           x: { ease: 'linear' },
           y: { times: [0, 0.5, 1], ease: 'easeInOut' },
