@@ -12,6 +12,7 @@ const EagleDivider = lazy(() => import('./components/EagleDivider'))
 const AICoach = lazy(() => import('./components/AICoach'))
 const Portfolio = lazy(() => import('./components/Portfolio'))
 const HopRegion = lazy(() => import('./components/HopRegion'))
+const Awards = lazy(() => import('./components/Awards'))
 const About = lazy(() => import('./components/About'))
 const Wedding = lazy(() => import('./components/Wedding'))
 const Commercial = lazy(() => import('./components/Commercial'))
@@ -57,6 +58,7 @@ export default function App() {
           <Commercial />
           <Tutorials />
           <Events />
+          <Awards />
           <About />
           <Contact />
         </Suspense>
