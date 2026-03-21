@@ -7,12 +7,13 @@ const projects = [
   {
     title: 'hoplove',
     subtitle: 'Eine Reise durch das Hopfenjahr am Bodensee',
-    category: 'Dokumentarfilm · Award Winner',
-    description: 'Ein Kinofilm über den Hopfenanbau am Bodensee, begleitet von Musik, die die landwirtschaftliche Tätigkeit durch das Jahr dokumentiert. Tettnanger Hopfen — weltweit exportiert für Premium-Bier.',
-    tags: ['Dokumentation', 'Award Winner', 'RED Camera', 'Musikkomposition'],
+    category: 'Dokumentarfilm · 30+ Festivalpreise',
+    description: 'Ein Kinofilm über den Hopfenanbau am Bodensee — ausgezeichnet mit über 30 internationalen Festivalpreisen u.a. bei Cannes Film Awards, Canadian Cinematography Awards, Rome International Movie Awards und Top Shorts. Musik von Matthias Schilling, Violine von Julia Clara Frisch.',
+    tags: ['Dokumentation', 'Cannes Film Awards', 'RED Camera', 'Musikkomposition', '30+ Preise', 'IMDB'],
     image: hoplovePoster,
     color: '#FFB800',
     link: 'https://hoplove.de',
+    imdbLink: 'https://www.imdb.com/title/tt29405925/',
   },
   {
     title: 'Kornati Islands',
@@ -23,6 +24,7 @@ const projects = [
     image: kornatiPoster,
     color: '#CC3300',
     link: 'https://redmovieawards.com/itv_sebastian_bauer',
+  imdbLink: undefined,
   },
 ]
 
@@ -196,21 +198,50 @@ function ProjectCard({
           ))}
         </div>
 
-        {project.link !== '#contact' ? (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline"
-            style={{ alignSelf: 'flex-start' }}
-          >
-            Mehr erfahren →
-          </a>
-        ) : (
-          <a href="#contact" className="btn-outline" style={{ alignSelf: 'flex-start' }}>
-            Ähnliches Projekt →
-          </a>
-        )}
+        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+          {project.link !== '#contact' ? (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+              style={{ alignSelf: 'flex-start' }}
+            >
+              Mehr erfahren →
+            </a>
+          ) : (
+            <a href="#contact" className="btn-outline" style={{ alignSelf: 'flex-start' }}>
+              Ähnliches Projekt →
+            </a>
+          )}
+          {project.imdbLink && (
+            <a
+              href={project.imdbLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                alignSelf: 'flex-start',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.65rem 1.2rem',
+                background: '#F5C518',
+                color: '#000',
+                fontSize: '0.72rem',
+                fontFamily: 'Inter',
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                textDecoration: 'none',
+                transition: 'opacity 0.2s ease',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
+              onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+            >
+              <span style={{ fontWeight: 900, fontSize: '0.8rem' }}>IMDb</span> →
+            </a>
+          )}
+        </div>
       </div>
 
       <style>{`
