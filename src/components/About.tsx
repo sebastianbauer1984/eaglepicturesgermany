@@ -20,7 +20,6 @@ import makingOfRedCameraLindau from '../assets/images/making-of-red-camera-linda
 import makingOfRedCameraSunset from '../assets/images/making-of-red-camera-sunset.jpg'
 import makingOfTheaterFilming from '../assets/images/making-of-theater-filming.jpg'
 import makingOfInterviewMale from '../assets/images/making-of-interview-male.jpg'
-import makingOfInterviewFemale from '../assets/images/making-of-interview-female.jpg'
 import makingOfSoundStudio from '../assets/images/making-of-sound-studio.jpg'
 import makingOfMixingConsole from '../assets/images/making-of-mixing-console.jpg'
 import makingOfViolinRehearsal from '../assets/images/making-of-violin-rehearsal.jpg'
@@ -28,7 +27,6 @@ import makingOfViolinStudio from '../assets/images/making-of-violin-studio.jpg'
 import makingOfRedAward2026 from '../assets/images/making-of-red-award-2026.jpg'
 import makingOfRedMention2025 from '../assets/images/making-of-red-mention-2025.jpg'
 import makingOfKornatiSunset from '../assets/images/making-of-kornati-sunset.jpg'
-import makingOfKornatiRestaurant from '../assets/images/making-of-kornati-restaurant.jpg'
 
 const photos = [
   { src: makingOfSet, caption: 'On Set · hoplove' },
