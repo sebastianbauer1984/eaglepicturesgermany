@@ -67,8 +67,7 @@ export default function App() {
             image="/hoplove/bodensee.jpg"
             focalPoint="center 40%"
             height="55vh"
-            label="Bodensee · Tettnang"
-            title="Heimat des grünen Golds"
+            title="Unsere Ideen sind unsere Seele"
             staticImage
           />
           <Contact />
