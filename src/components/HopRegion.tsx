@@ -196,12 +196,31 @@ export default function HopRegion() {
           }}>
             Impressionen · Behind the Scenes
           </p>
-          <ParallaxImage {...droneImage} index={0} />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{ position: 'relative', width: '100%', aspectRatio: '21/9', overflow: 'hidden', background: '#0a0a0a' }}
+          >
+            <img
+              src="/hoplove/drone.jpg"
+              alt="Hopfenfelder aus der Vogelperspektive"
+              loading="lazy"
+              decoding="async"
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'brightness(0.85) saturate(1.1)' }}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 40%, transparent 100%)' }} />
+            <p style={{ position: 'absolute', bottom: '1.25rem', left: '1.5rem', fontFamily: 'Cinzel', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', fontWeight: 400 }}>
+              Hopfenfelder · Tettnang
+            </p>
+          </motion.div>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
             columnGap: '6px',
             marginTop: '1.5rem',
+            width: '100%',
           }}>
             {galleryImages.map((img, i) => (
               <ParallaxImage key={img.src} {...img} index={i + 1} />
