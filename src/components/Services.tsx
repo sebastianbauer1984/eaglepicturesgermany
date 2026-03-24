@@ -41,23 +41,38 @@ const IconBroadcast = () => (
 const IconRing = () => (
   <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" {...iconSize}>
     <GradientDef id="g3" />
-    <circle cx="22" cy="28" r="12" stroke="url(#g3)" strokeWidth={sw} />
-    <path d="M15 12 L18 18 L22 14 L26 18 L29 12" stroke="url(#g3)" strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M16 18 H28" stroke="url(#g3)" strokeWidth={sw} strokeLinecap="round" />
-    <path d="M18.5 18 C18.5 22 25.5 22 25.5 18" stroke="url(#g3)" strokeWidth={sw} strokeLinecap="round" />
-    <circle cx="22" cy="28" r="4" stroke="url(#g3)" strokeWidth={sw} opacity="0.6" />
+    {/* Wedding band — front ellipse */}
+    <ellipse cx="22" cy="28" rx="13" ry="6" stroke="url(#g3)" strokeWidth={sw} />
+    {/* Top opening of the band */}
+    <path d="M9 28 C9 22 35 22 35 28" stroke="url(#g3)" strokeWidth={sw} strokeLinecap="round" />
+    {/* Inner band highlight */}
+    <ellipse cx="22" cy="28" rx="9" ry="3.5" stroke="url(#g3)" strokeWidth={sw} opacity="0.4" />
+    {/* Diamond on top */}
+    <path d="M18 16 L20 12 L24 12 L26 16 L22 21 Z" stroke="url(#g3)" strokeWidth={sw} strokeLinejoin="round" />
+    <line x1="18" y1="16" x2="26" y2="16" stroke="url(#g3)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="20" y1="12" x2="22" y2="21" stroke="url(#g3)" strokeWidth={sw} strokeLinecap="round" opacity="0.5" />
+    <line x1="24" y1="12" x2="22" y2="21" stroke="url(#g3)" strokeWidth={sw} strokeLinecap="round" opacity="0.5" />
   </svg>
 )
 
-const IconSpotlight = () => (
+const IconDancer = () => (
   <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" {...iconSize}>
     <GradientDef id="g4" />
-    <ellipse cx="22" cy="38" rx="10" ry="3" stroke="url(#g4)" strokeWidth={sw} opacity="0.5" />
-    <path d="M12 38 L18 14 H26 L32 38" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" />
-    <rect x="16" y="7" width="12" height="8" rx="2" stroke="url(#g4)" strokeWidth={sw} />
-    <line x1="22" y1="38" x2="22" y2="26" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" opacity="0.4" />
-    <line x1="16" y1="34" x2="22" y2="27" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" opacity="0.3" />
-    <line x1="28" y1="34" x2="22" y2="27" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" opacity="0.3" />
+    {/* Head */}
+    <circle cx="26" cy="7" r="3.5" stroke="url(#g4)" strokeWidth={sw} />
+    {/* Body */}
+    <path d="M26 10.5 C24 14 20 16 18 20" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" />
+    {/* Right arm raised */}
+    <path d="M24 14 C26 11 30 9 33 7" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" />
+    {/* Left arm out */}
+    <path d="M22 17 C18 15 14 16 11 19" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" />
+    {/* Skirt / dress flare */}
+    <path d="M18 20 C16 24 12 28 11 34" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" />
+    <path d="M18 20 C20 25 22 29 26 34" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" />
+    <path d="M18 20 C17 25 16 30 18 34" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" opacity="0.5" />
+    {/* Legs */}
+    <path d="M11 34 C10 37 11 40 12 42" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" />
+    <path d="M26 34 C28 37 30 39 32 40" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" />
   </svg>
 )
 
@@ -116,7 +131,7 @@ const services = [
     featherColor: 'rgba(204,17,102,0.15)',
   },
   {
-    icon: <IconSpotlight />,
+    icon: <IconDancer />,
     title: 'Modeschau & Entertainment',
     subtitle: 'Fashion · Events · Shows',
     description: 'Modeschauen und Events auf höchstem visuellen Niveau. Dynamischer Schnitt, atmosphärische Musik, unvergleichliche Energie — das Ergebnis begeistert.',
