@@ -198,7 +198,8 @@ export default function HopRegion() {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '6px',
+            columnGap: '6px',
+            rowGap: '1.5rem',
           }}>
             {galleryImages.map((img, i) => (
               <ParallaxImage key={img.src} {...img} index={i} />
