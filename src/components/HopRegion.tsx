@@ -6,13 +6,14 @@ const galleryImages = [
   { src: '/hoplove/drone.jpg', alt: 'Hopfenfelder aus der Vogelperspektive', caption: 'Hopfenfelder · Tettnang', wide: true },
   { src: '/hoplove/hop-02.png', alt: 'Hopfenzapfen Nahaufnahme', caption: 'Das grüne Gold', wide: false },
   { src: '/hoplove/hop-01.png', alt: 'Hopfen Detail', caption: 'Reinheit der Natur', wide: false },
-  { src: '/hoplove/in-action.jpg', alt: 'Violinistin im Konzerthaus', caption: 'Musik trifft Natur · HopLove', wide: true, objectPosition: 'center 20%' },
+  { src: '/hoplove/in-action.jpg', alt: 'Violinistin im Konzerthaus', caption: 'Musik trifft Natur · HopLove', wide: true, objectPosition: 'center top', noParallax: true },
 ]
 
-function ParallaxImage({ src, alt, caption, wide, index, objectPosition = 'center' }: { src: string; alt: string; caption: string; wide: boolean; index: number; objectPosition?: string }) {
+function ParallaxImage({ src, alt, caption, wide, index, objectPosition = 'center', noParallax = false }: { src: string; alt: string; caption: string; wide: boolean; index: number; objectPosition?: string; noParallax?: boolean }) {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const y = useTransform(scrollYProgress, [0, 1], [30, -30])
+  const yMotion = useTransform(scrollYProgress, [0, 1], [30, -30])
+  const y = noParallax ? 0 : yMotion
 
   return (
     <motion.div
@@ -35,8 +36,10 @@ function ParallaxImage({ src, alt, caption, wide, index, objectPosition = 'cente
         loading="lazy"
         decoding="async"
         style={{
-          position: 'absolute', inset: '-5%',
-          width: '110%', height: '110%',
+          position: 'absolute',
+          inset: noParallax ? 0 : '-5%',
+          width: noParallax ? '100%' : '110%',
+          height: noParallax ? '100%' : '110%',
           objectFit: 'cover',
           objectPosition,
           filter: 'brightness(0.85) saturate(1.1)',
