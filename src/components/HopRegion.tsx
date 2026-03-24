@@ -2,11 +2,11 @@ import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState } from 'react'
 
 const galleryImages = [
-  { src: '/hoplove/bodensee.jpg', alt: 'Bodensee Luftaufnahme', caption: 'Bodensee · Heimat des Tettnanger Hopfens', wide: true },
-  { src: '/hoplove/drone.jpg', alt: 'Hopfenfelder aus der Vogelperspektive', caption: 'Hopfenfelder · Tettnang', wide: true },
+  { src: '/hoplove/bodensee.jpg', alt: 'Bodensee Luftaufnahme', caption: 'Bodensee · Heimat des Tettnanger Hopfens', wide: true, aspectRatio: '16/9' },
+  { src: '/hoplove/drone.jpg', alt: 'Hopfenfelder aus der Vogelperspektive', caption: 'Hopfenfelder · Tettnang', wide: false, aspectRatio: '4/3' },
   { src: '/hoplove/hop-02.png', alt: 'Hopfenzapfen Nahaufnahme', caption: 'Das grüne Gold', wide: false },
   { src: '/hoplove/hop-01.png', alt: 'Hopfen Detail', caption: 'Reinheit der Natur', wide: false },
-  { src: '/hoplove/in-action.jpg', alt: 'Violinistin im Konzerthaus', caption: 'Musik trifft Natur · HopLove', wide: true, objectPosition: 'center top', noParallax: true, aspectRatio: '16/9' },
+  { src: '/hoplove/in-action.jpg', alt: 'Violinistin im Konzerthaus', caption: 'Musik trifft Natur · HopLove', wide: false, objectPosition: 'center 20%', noParallax: true },
 ]
 
 function ParallaxImage({ src, alt, caption, wide, index, objectPosition = 'center', noParallax = false, aspectRatio: customAspectRatio }: { src: string; alt: string; caption: string; wide: boolean; index: number; objectPosition?: string; noParallax?: boolean; aspectRatio?: string }) {
@@ -198,7 +198,7 @@ export default function HopRegion() {
           </p>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
+            gridTemplateColumns: 'repeat(3, 1fr)',
             gap: '6px',
           }}>
             {galleryImages.map((img, i) => (
@@ -275,24 +275,18 @@ export default function HopRegion() {
 
       <style>{`
         @media (max-width: 900px) {
-          #hopregion .container > div > div[style*="repeat(3"] {
-            grid-template-columns: 1fr !important;
-          }
           #hopregion .container > div > div[style*="repeat(3, 1fr)"] {
-            grid-template-columns: 1fr !important;
-          }
-          #hopregion .container > div > div[style*="repeat(4, 1fr)"] {
             grid-template-columns: 1fr 1fr !important;
           }
-          #hopregion .container > div > div[style*="repeat(4, 1fr)"] > div[style*="span 2"] {
+          #hopregion .container > div > div[style*="repeat(3, 1fr)"] > div[style*="span 2"] {
             grid-column: span 2 !important;
           }
         }
         @media (max-width: 600px) {
-          #hopregion .container > div > div[style*="repeat(4, 1fr)"] {
+          #hopregion .container > div > div[style*="repeat(3, 1fr)"] {
             grid-template-columns: 1fr !important;
           }
-          #hopregion .container > div > div[style*="repeat(4, 1fr)"] > div[style*="span 2"] {
+          #hopregion .container > div > div[style*="repeat(3, 1fr)"] > div[style*="span 2"] {
             grid-column: span 1 !important;
           }
         }
