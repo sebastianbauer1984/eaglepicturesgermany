@@ -11,18 +11,22 @@ interface EagleDividerProps {
   title?: React.ReactNode
   flip?: boolean
   parallaxInset?: string
+  staticImage?: boolean
 }
 
-export default function EagleDivider({ image, position = 'center', focalPoint, height = '60vh', label, title, flip = false, parallaxInset = '-8%' }: EagleDividerProps) {
+export default function EagleDivider({ image, position = 'center', focalPoint, height = '60vh', label, title, flip = false, parallaxInset = '-8%', staticImage = false }: EagleDividerProps) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const x = useTransform(
+  const xMotion = useTransform(
     scrollYProgress,
     [0, 1],
     position === 'left' ? ['8%', '-4%'] : position === 'right' ? ['-8%', '4%'] : ['0%', '0%']
   )
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.05, 1.0, 1.05])
+  const scaleMotion = useTransform(scrollYProgress, [0, 0.5, 1], [1.05, 1.0, 1.05])
+  const x = staticImage ? '0%' : xMotion
+  const scale = staticImage ? 1 : scaleMotion
   const objectPosition = focalPoint ?? position
+  const inset = staticImage ? 0 : parallaxInset
 
   return (
     <div
@@ -35,7 +39,7 @@ export default function EagleDivider({ image, position = 'center', focalPoint, h
         background: '#000',
       }}
     >
-      <motion.div style={{ position: 'absolute', inset: parallaxInset, x, scale }}>
+      <motion.div style={{ position: 'absolute', inset, x, scale }}>
         <img
           src={image}
           alt=""
@@ -57,7 +61,9 @@ export default function EagleDivider({ image, position = 'center', focalPoint, h
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 25%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.9) 100%)',
+        background: staticImage
+          ? 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 20%, rgba(0,0,0,0.05) 75%, rgba(0,0,0,0.9) 100%)'
+          : 'linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 25%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.9) 100%)',
       }} />
       {/* Rainbow feather edge glow */}
       <div style={{
