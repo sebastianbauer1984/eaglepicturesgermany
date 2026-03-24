@@ -51,7 +51,7 @@ export default function App() {
           <AICoach />
           <EagleDivider
             image={kornatiSunset}
-            focalPoint="center top"
+            focalPoint="center bottom"
             height="65vh"
             staticImage
           />
