@@ -43,6 +43,7 @@ export default function App() {
           <EagleDivider
             image={sebastianDrone}
             position="center"
+            focalPoint="center 30%"
             height="55vh"
             label="Cinematic Excellence"
             title={<>The Eagle <span style={riseStyle}>Rises</span></>}

@@ -5,13 +5,14 @@ import React from 'react'
 interface EagleDividerProps {
   image: string
   position?: string
+  focalPoint?: string
   height?: string
   label?: string
   title?: React.ReactNode
   flip?: boolean
 }
 
-export default function EagleDivider({ image, position = 'center', height = '60vh', label, title, flip = false }: EagleDividerProps) {
+export default function EagleDivider({ image, position = 'center', focalPoint, height = '60vh', label, title, flip = false }: EagleDividerProps) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const x = useTransform(
@@ -20,6 +21,7 @@ export default function EagleDivider({ image, position = 'center', height = '60v
     position === 'left' ? ['8%', '-4%'] : position === 'right' ? ['-8%', '4%'] : ['0%', '0%']
   )
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.05, 1.0, 1.05])
+  const objectPosition = focalPoint ?? position
 
   return (
     <div
@@ -43,7 +45,7 @@ export default function EagleDivider({ image, position = 'center', height = '60v
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: position,
+            objectPosition,
             filter: `brightness(0.45) contrast(1.2) saturate(1.35) ${flip ? 'scaleX(-1)' : ''}`,
             transform: flip ? 'scaleX(-1)' : 'none',
           }}

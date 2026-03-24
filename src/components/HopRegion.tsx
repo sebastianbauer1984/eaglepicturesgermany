@@ -6,10 +6,10 @@ const galleryImages = [
   { src: '/hoplove/drone.jpg', alt: 'Hopfenfelder aus der Vogelperspektive', caption: 'Hopfenfelder · Tettnang', wide: true },
   { src: '/hoplove/hop-02.png', alt: 'Hopfenzapfen Nahaufnahme', caption: 'Das grüne Gold', wide: false },
   { src: '/hoplove/hop-01.png', alt: 'Hopfen Detail', caption: 'Reinheit der Natur', wide: false },
-  { src: '/hoplove/in-action.jpg', alt: 'Violinistin im Konzerthaus', caption: 'Musik trifft Natur · HopLove', wide: true, objectPosition: 'center top', noParallax: true },
+  { src: '/hoplove/in-action.jpg', alt: 'Violinistin im Konzerthaus', caption: 'Musik trifft Natur · HopLove', wide: true, objectPosition: 'center top', noParallax: true, aspectRatio: '16/9' },
 ]
 
-function ParallaxImage({ src, alt, caption, wide, index, objectPosition = 'center', noParallax = false }: { src: string; alt: string; caption: string; wide: boolean; index: number; objectPosition?: string; noParallax?: boolean }) {
+function ParallaxImage({ src, alt, caption, wide, index, objectPosition = 'center', noParallax = false, aspectRatio: customAspectRatio }: { src: string; alt: string; caption: string; wide: boolean; index: number; objectPosition?: string; noParallax?: boolean; aspectRatio?: string }) {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const yMotion = useTransform(scrollYProgress, [0, 1], [30, -30])
@@ -26,7 +26,7 @@ function ParallaxImage({ src, alt, caption, wide, index, objectPosition = 'cente
         gridColumn: wide ? 'span 2' : 'span 1',
         position: 'relative',
         overflow: 'hidden',
-        aspectRatio: wide ? '21/9' : '4/5',
+        aspectRatio: customAspectRatio ?? (wide ? '21/9' : '4/5'),
         background: '#0a0a0a',
       }}
     >
