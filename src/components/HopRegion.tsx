@@ -6,10 +6,10 @@ const galleryImages = [
   { src: '/hoplove/drone.jpg', alt: 'Hopfenfelder aus der Vogelperspektive', caption: 'Hopfenfelder · Tettnang', wide: true },
   { src: '/hoplove/hop-02.png', alt: 'Hopfenzapfen Nahaufnahme', caption: 'Das grüne Gold', wide: false },
   { src: '/hoplove/hop-01.png', alt: 'Hopfen Detail', caption: 'Reinheit der Natur', wide: false },
-  { src: '/hoplove/in-action.jpg', alt: 'Violinistin im Konzerthaus', caption: 'Musik trifft Natur · HopLove', wide: true },
+  { src: '/hoplove/in-action.jpg', alt: 'Violinistin im Konzerthaus', caption: 'Musik trifft Natur · HopLove', wide: true, objectPosition: 'center 20%' },
 ]
 
-function ParallaxImage({ src, alt, caption, wide, index }: { src: string; alt: string; caption: string; wide: boolean; index: number }) {
+function ParallaxImage({ src, alt, caption, wide, index, objectPosition = 'center' }: { src: string; alt: string; caption: string; wide: boolean; index: number; objectPosition?: string }) {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const y = useTransform(scrollYProgress, [0, 1], [30, -30])
@@ -38,6 +38,7 @@ function ParallaxImage({ src, alt, caption, wide, index }: { src: string; alt: s
           position: 'absolute', inset: '-5%',
           width: '110%', height: '110%',
           objectFit: 'cover',
+          objectPosition,
           filter: 'brightness(0.85) saturate(1.1)',
           y,
         }}
