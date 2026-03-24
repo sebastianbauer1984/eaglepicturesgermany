@@ -10,9 +10,10 @@ interface EagleDividerProps {
   label?: string
   title?: React.ReactNode
   flip?: boolean
+  parallaxInset?: string
 }
 
-export default function EagleDivider({ image, position = 'center', focalPoint, height = '60vh', label, title, flip = false }: EagleDividerProps) {
+export default function EagleDivider({ image, position = 'center', focalPoint, height = '60vh', label, title, flip = false, parallaxInset = '-8%' }: EagleDividerProps) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const x = useTransform(
@@ -34,7 +35,7 @@ export default function EagleDivider({ image, position = 'center', focalPoint, h
         background: '#000',
       }}
     >
-      <motion.div style={{ position: 'absolute', inset: '-8%', x, scale }}>
+      <motion.div style={{ position: 'absolute', inset: parallaxInset, x, scale }}>
         <img
           src={image}
           alt=""

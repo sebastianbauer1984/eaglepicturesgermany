@@ -51,8 +51,10 @@ export default function App() {
           <AICoach />
           <EagleDivider
             image={kornatiSunset}
-            position="center top"
+            position="center"
+            focalPoint="center top"
             height="65vh"
+            parallaxInset="-2%"
           />
           <Portfolio />
           <HopRegion />
