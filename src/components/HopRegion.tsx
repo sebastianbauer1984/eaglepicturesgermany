@@ -2,8 +2,7 @@ import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState } from 'react'
 
 const galleryImages = [
-  { src: '/hoplove/bodensee.jpg', alt: 'Bodensee Luftaufnahme', caption: 'Bodensee · Heimat des Tettnanger Hopfens', wide: true, aspectRatio: '16/9' },
-  { src: '/hoplove/drone.jpg', alt: 'Hopfenfelder aus der Vogelperspektive', caption: 'Hopfenfelder · Tettnang', wide: false, aspectRatio: '4/3' },
+  { src: '/hoplove/drone.jpg', alt: 'Hopfenfelder aus der Vogelperspektive', caption: 'Hopfenfelder · Tettnang', wide: true, aspectRatio: '21/9' },
   { src: '/hoplove/hop-02.png', alt: 'Hopfenzapfen Nahaufnahme', caption: 'Das grüne Gold', wide: false },
   { src: '/hoplove/hop-01.png', alt: 'Hopfen Detail', caption: 'Reinheit der Natur', wide: false },
   { src: '/hoplove/in-action.jpg', alt: 'Violinistin im Konzerthaus', caption: 'Musik trifft Natur · HopLove', wide: false, objectPosition: 'center 20%', noParallax: true },
@@ -23,7 +22,7 @@ function ParallaxImage({ src, alt, caption, wide, index, objectPosition = 'cente
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
       style={{
-        gridColumn: wide ? 'span 2' : 'span 1',
+        gridColumn: wide ? 'span 3' : 'span 1',
         position: 'relative',
         overflow: 'hidden',
         aspectRatio: customAspectRatio ?? (wide ? '21/9' : '4/5'),
@@ -278,7 +277,7 @@ export default function HopRegion() {
           #hopregion .container > div > div[style*="repeat(3, 1fr)"] {
             grid-template-columns: 1fr 1fr !important;
           }
-          #hopregion .container > div > div[style*="repeat(3, 1fr)"] > div[style*="span 2"] {
+          #hopregion .container > div > div[style*="repeat(3, 1fr)"] > div[style*="span 3"] {
             grid-column: span 2 !important;
           }
         }
@@ -286,7 +285,7 @@ export default function HopRegion() {
           #hopregion .container > div > div[style*="repeat(3, 1fr)"] {
             grid-template-columns: 1fr !important;
           }
-          #hopregion .container > div > div[style*="repeat(3, 1fr)"] > div[style*="span 2"] {
+          #hopregion .container > div > div[style*="repeat(3, 1fr)"] > div[style*="span 3"] {
             grid-column: span 1 !important;
           }
         }

@@ -63,6 +63,14 @@ export default function App() {
           <Events />
           <Awards />
           <About />
+          <EagleDivider
+            image="/hoplove/bodensee.jpg"
+            focalPoint="center 40%"
+            height="55vh"
+            label="Bodensee · Tettnang"
+            title="Heimat des grünen Golds"
+            staticImage
+          />
           <Contact />
         </Suspense>
       </main>
