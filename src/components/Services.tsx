@@ -1,9 +1,98 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
+const GradientDef = ({ id }: { id: string }) => (
+  <defs>
+    <linearGradient id={id} x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFB800" />
+      <stop offset="50%" stopColor="#FF6600" />
+      <stop offset="100%" stopColor="#CC2200" />
+    </linearGradient>
+  </defs>
+)
+
+const iconSize = { width: 44, height: 44 }
+const sw = 1.6 // strokeWidth
+
+const IconClapperboard = () => (
+  <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" {...iconSize}>
+    <GradientDef id="g1" />
+    <rect x="5" y="16" width="34" height="23" rx="2.5" stroke="url(#g1)" strokeWidth={sw} />
+    <rect x="5" y="9" width="34" height="8" rx="1.5" stroke="url(#g1)" strokeWidth={sw} />
+    <line x1="13" y1="9" x2="9"  y2="17" stroke="url(#g1)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="21" y1="9" x2="17" y2="17" stroke="url(#g1)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="29" y1="9" x2="25" y2="17" stroke="url(#g1)" strokeWidth={sw} strokeLinecap="round" />
+    <circle cx="22" cy="27.5" r="5.5" stroke="url(#g1)" strokeWidth={sw} />
+    <circle cx="22" cy="27.5" r="2" fill="url(#g1)" />
+  </svg>
+)
+
+const IconBroadcast = () => (
+  <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" {...iconSize}>
+    <GradientDef id="g2" />
+    <rect x="4" y="8" width="36" height="24" rx="3" stroke="url(#g2)" strokeWidth={sw} />
+    <line x1="15" y1="32" x2="12" y2="40" stroke="url(#g2)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="29" y1="32" x2="32" y2="40" stroke="url(#g2)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="11" y1="40" x2="33" y2="40" stroke="url(#g2)" strokeWidth={sw} strokeLinecap="round" />
+    <polygon points="17,14 17,26 30,20" fill="url(#g2)" />
+  </svg>
+)
+
+const IconRing = () => (
+  <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" {...iconSize}>
+    <GradientDef id="g3" />
+    <circle cx="22" cy="28" r="12" stroke="url(#g3)" strokeWidth={sw} />
+    <path d="M15 12 L18 18 L22 14 L26 18 L29 12" stroke="url(#g3)" strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M16 18 H28" stroke="url(#g3)" strokeWidth={sw} strokeLinecap="round" />
+    <path d="M18.5 18 C18.5 22 25.5 22 25.5 18" stroke="url(#g3)" strokeWidth={sw} strokeLinecap="round" />
+    <circle cx="22" cy="28" r="4" stroke="url(#g3)" strokeWidth={sw} opacity="0.6" />
+  </svg>
+)
+
+const IconSpotlight = () => (
+  <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" {...iconSize}>
+    <GradientDef id="g4" />
+    <ellipse cx="22" cy="38" rx="10" ry="3" stroke="url(#g4)" strokeWidth={sw} opacity="0.5" />
+    <path d="M12 38 L18 14 H26 L32 38" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" />
+    <rect x="16" y="7" width="12" height="8" rx="2" stroke="url(#g4)" strokeWidth={sw} />
+    <line x1="22" y1="38" x2="22" y2="26" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" opacity="0.4" />
+    <line x1="16" y1="34" x2="22" y2="27" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" opacity="0.3" />
+    <line x1="28" y1="34" x2="22" y2="27" stroke="url(#g4)" strokeWidth={sw} strokeLinecap="round" opacity="0.3" />
+  </svg>
+)
+
+const IconAI = () => (
+  <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" {...iconSize}>
+    <GradientDef id="g5" />
+    <rect x="10" y="10" width="24" height="20" rx="4" stroke="url(#g5)" strokeWidth={sw} />
+    <circle cx="16" cy="20" r="2.5" stroke="url(#g5)" strokeWidth={sw} />
+    <circle cx="28" cy="20" r="2.5" stroke="url(#g5)" strokeWidth={sw} />
+    <line x1="18.5" y1="20" x2="25.5" y2="20" stroke="url(#g5)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="16" y1="10" x2="16" y2="6"  stroke="url(#g5)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="22" y1="10" x2="22" y2="6"  stroke="url(#g5)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="28" y1="10" x2="28" y2="6"  stroke="url(#g5)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="10" y1="17" x2="6"  y2="17" stroke="url(#g5)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="10" y1="23" x2="6"  y2="23" stroke="url(#g5)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="34" y1="17" x2="38" y2="17" stroke="url(#g5)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="34" y1="23" x2="38" y2="23" stroke="url(#g5)" strokeWidth={sw} strokeLinecap="round" />
+    <path d="M16 30 L16 36 L22 33 L28 36 L28 30" stroke="url(#g5)" strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
+const IconCamera = () => (
+  <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" {...iconSize}>
+    <GradientDef id="g6" />
+    <rect x="3" y="13" width="28" height="20" rx="3" stroke="url(#g6)" strokeWidth={sw} />
+    <path d="M31 19 L41 14 L41 30 L31 25" stroke="url(#g6)" strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="16" cy="23" r="6" stroke="url(#g6)" strokeWidth={sw} />
+    <circle cx="16" cy="23" r="2.5" fill="url(#g6)" />
+    <circle cx="8"  cy="17" r="1.5" fill="url(#g6)" opacity="0.7" />
+  </svg>
+)
+
 const services = [
   {
-    icon: '🎬',
+    icon: <IconClapperboard />,
     title: 'Commercial Filmproduktion',
     subtitle: 'Für Betriebe & Gemeinden',
     description: 'Imagefilme, die bewegen und konvertieren. Wir erzählen die Geschichte deines Unternehmens auf Kino-Niveau — mit RED Camera, professionellem Sounddesign und Musikkomposition.',
@@ -11,7 +100,7 @@ const services = [
     featherColor: 'rgba(255,184,0,0.15)',
   },
   {
-    icon: '📺',
+    icon: <IconBroadcast />,
     title: 'Werbefilm & Produktvideo',
     subtitle: 'Social Media · Cinema · TV',
     description: 'Kurze, prägnante Werbespots für Social Media, Kino und TV. Maximale Wirkung, klare Botschaft, perfekte Umsetzung. Jedes Frame erzählt deine Marke.',
@@ -19,7 +108,7 @@ const services = [
     featherColor: 'rgba(255,102,0,0.15)',
   },
   {
-    icon: '💍',
+    icon: <IconRing />,
     title: 'Hochzeitsfilm Deluxe',
     subtitle: 'Der schönste Tag deines Lebens',
     description: 'Kein Moment kann wiederholt werden. Wir fangen jeden Blick, jede Emotion, jeden Augenblick in einem cineastischen Film ein, der ein Leben lang bewegt.',
@@ -27,7 +116,7 @@ const services = [
     featherColor: 'rgba(204,17,102,0.15)',
   },
   {
-    icon: '🎭',
+    icon: <IconSpotlight />,
     title: 'Modeschau & Entertainment',
     subtitle: 'Fashion · Events · Shows',
     description: 'Modeschauen und Events auf höchstem visuellen Niveau. Dynamischer Schnitt, atmosphärische Musik, unvergleichliche Energie — das Ergebnis begeistert.',
@@ -35,7 +124,7 @@ const services = [
     featherColor: 'rgba(136,51,204,0.15)',
   },
   {
-    icon: '🤖',
+    icon: <IconAI />,
     title: 'AI-Film Produktion',
     subtitle: 'Künstliche Intelligenz trifft Kino',
     description: 'Die Zukunft der Filmproduktion. Hochwertige AI-generierte Szenen, Charaktere und Welten — kombiniert mit professionellem Sounddesign und Storytelling auf Kinoniveau.',
@@ -43,7 +132,7 @@ const services = [
     featherColor: 'rgba(17,99,220,0.15)',
   },
   {
-    icon: '🎥',
+    icon: <IconCamera />,
     title: 'Event Highlight Video',
     subtitle: 'Konferenzen · Festivals · Sport',
     description: 'Events verdienen die beste Erinnerung. Kompakte Highlight-Videos, die die Energie und Atmosphäre einfangen und die Vorfreude aufs nächste Event wecken.',
@@ -52,7 +141,7 @@ const services = [
   },
 ]
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+function ServiceCard({ service, index }: { service: (typeof services)[0]; index: number }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-50px' })
 
@@ -87,7 +176,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         pointerEvents: 'none',
       }} />
 
-      <div style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>{service.icon}</div>
+      <div style={{ marginBottom: '1.25rem' }}>{service.icon}</div>
 
       <p style={{
         fontSize: '0.65rem',
