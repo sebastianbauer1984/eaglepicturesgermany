@@ -1,8 +1,6 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState } from 'react'
 
-const droneImage = { src: '/hoplove/drone.jpg', alt: 'Hopfenfelder aus der Vogelperspektive', caption: 'Hopfenfelder · Tettnang', wide: true, aspectRatio: '21/9' }
-
 const galleryImages = [
   { src: '/hoplove/hop-02.png', alt: 'Hopfenzapfen Nahaufnahme', caption: 'Das grüne Gold', wide: false },
   { src: '/hoplove/hop-01.png', alt: 'Hopfen Detail', caption: 'Reinheit der Natur', wide: false },
