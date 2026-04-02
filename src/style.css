@@ -27,6 +27,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 160px;
+}
+
+@media (max-width: 900px) {
+  html {
+    scroll-padding-top: 90px;
+  }
 }
 
 body {
