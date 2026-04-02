@@ -16,6 +16,7 @@ const Awards = lazy(() => import('./components/Awards'))
 const About = lazy(() => import('./components/About'))
 const Wedding = lazy(() => import('./components/Wedding'))
 const Commercial = lazy(() => import('./components/Commercial'))
+const TalesOfASkipper = lazy(() => import('./components/TalesOfASkipper'))
 const Tutorials = lazy(() => import('./components/Tutorials'))
 const Events = lazy(() => import('./components/Events'))
 const Contact = lazy(() => import('./components/Contact'))
@@ -56,6 +57,7 @@ export default function App() {
             staticImage
           />
           <Portfolio />
+          <TalesOfASkipper />
           <HopRegion />
           <Wedding />
           <Commercial />
