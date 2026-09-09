@@ -81,27 +81,35 @@ export default function Datenschutz() {
             durch Standardvertragsklauseln abgesichert.
           </Block>
 
-          <Block title="3. Google Fonts">
-            Diese Website lädt Schriftarten von Servern der Google Ireland Limited, Gordon House,
-            Barrow Street, Dublin 4, Irland. Dabei wird Ihre IP-Adresse an Google übertragen. Die
-            Nutzung dient der einheitlichen Darstellung der Website. Rechtsgrundlage ist Ihre
-            Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, soweit diese eingeholt wird, andernfalls
-            unser berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen:{' '}
-            <a href="https://policies.google.com/privacy" style={link} target="_blank" rel="noopener noreferrer">
-              policies.google.com/privacy
-            </a>
+          <Block title="3. Schriftarten">
+            Die verwendeten Schriften (Cinzel und Inter) liegen auf unserem eigenen Server und werden
+            von dort ausgeliefert. Es wird <strong style={{ color: 'rgba(255,255,255,0.5)' }}>keine
+            Verbindung zu Google Fonts</strong> aufgebaut, und es wird dabei keine IP-Adresse an
+            Google übertragen.
           </Block>
 
-          <Block title="4. Google Analytics">
-            Diese Website verwendet Google Analytics 4 (Mess-ID G-4ZVY685VGQ), einen Dienst der
-            Google Ireland Limited. Google Analytics verwendet Technologien, die die Wiedererkennung
-            Ihres Browsers ermöglichen, und wertet Ihre Nutzung der Website statistisch aus. Die
-            IP-Adresse wird dabei von Google gekürzt. Die erhobenen Daten können an Server von Google
-            in den USA übertragen werden. Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1
-            lit. a DSGVO. Sie können eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft
-            widerrufen, etwa über das Browser-Add-on von Google:{' '}
-            <a href="https://tools.google.com/dlpage/gaoptout" style={link} target="_blank" rel="noopener noreferrer">
-              tools.google.com/dlpage/gaoptout
+          <Block title="4. Einwilligung und Statistik (Google Analytics)">
+            Diese Website kann Google Analytics 4 (Mess-ID G-4ZVY685VGQ) der Google Ireland Limited,
+            Gordon House, Barrow Street, Dublin 4, Irland verwenden, um die Nutzung der Seite
+            statistisch auszuwerten. <strong style={{ color: 'rgba(255,255,255,0.5)' }}>Analytics wird
+            erst geladen, nachdem Sie im Hinweisbanner ausdrücklich zugestimmt haben.</strong> Solange
+            Sie nicht zustimmen oder „Nur Notwendiges" wählen, wird keine Verbindung zu Google
+            hergestellt und es werden keine Daten übertragen.
+            <br />
+            <br />
+            Stimmen Sie zu, werden Technologien eingesetzt, die die Wiedererkennung Ihres Browsers
+            ermöglichen; die IP-Adresse wird dabei gekürzt (anonymize_ip). Daten können an Server von
+            Google in den USA übertragen werden. Rechtsgrundlage ist Ihre Einwilligung nach Art. 6
+            Abs. 1 lit. a DSGVO sowie § 25 Abs. 1 TDDDG.
+            <br />
+            <br />
+            Ihre Entscheidung speichern wir ausschließlich lokal in Ihrem Browser
+            (localStorage-Eintrag „ep-consent"); sie wird nicht an uns übertragen und verfällt nach
+            180 Tagen. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen
+            — über den Link „Cookie-Einstellungen" ganz unten auf dieser Seite. Weitere
+            Informationen:{' '}
+            <a href="https://policies.google.com/privacy" style={link} target="_blank" rel="noopener noreferrer">
+              policies.google.com/privacy
             </a>
           </Block>
 

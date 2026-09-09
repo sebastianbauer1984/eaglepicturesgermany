@@ -22,6 +22,7 @@ const Events = lazy(() => import('./components/Events'))
 const Contact = lazy(() => import('./components/Contact'))
 const Footer = lazy(() => import('./components/Footer'))
 const FlyingEagle = lazy(() => import('./components/FlyingEagle'))
+const ConsentBanner = lazy(() => import('./components/ConsentBanner'))
 
 const riseStyle = {
   background: 'linear-gradient(90deg, #FFB800 0%, #FF6600 50%, #CC2200 100%)',
@@ -80,6 +81,9 @@ export default function App() {
       </Suspense>
       <Suspense fallback={null}>
         <FlyingEagle />
+      </Suspense>
+      <Suspense fallback={null}>
+        <ConsentBanner />
       </Suspense>
     </>
   )

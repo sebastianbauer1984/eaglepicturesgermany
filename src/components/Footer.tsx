@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import eagleRiseLogo from '../assets/images/eagle-rise-logo.png'
 import Datenschutz from './Datenschutz'
+import { consentZuruecksetzen } from '../consent'
 
 export default function Footer() {
   return (
@@ -98,6 +99,13 @@ export default function Footer() {
               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.25)')}>
               Datenschutz
             </a>
+            <button
+              onClick={() => { consentZuruecksetzen(); window.dispatchEvent(new Event('ep-consent-oeffnen')) }}
+              style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'Inter', fontSize: '0.75rem', background: 'none', border: 'none', padding: 0, cursor: 'pointer', transition: 'color 0.3s' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#FFB800')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.25)')}>
+              Cookie-Einstellungen
+            </button>
           </div>
         </div>
       </div>
