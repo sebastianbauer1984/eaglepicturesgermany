@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import eagleRiseLogo from '../assets/images/eagle-rise-logo.png'
+import Datenschutz from './Datenschutz'
 
 export default function Footer() {
   return (
@@ -86,11 +87,18 @@ export default function Footer() {
           <p style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'Inter', fontSize: '0.75rem' }}>
             COPYRIGHT 2024 © EAGLE PICTURES® by Sebastian Bauer — All rights reserved
           </p>
-          <a href="#impressum" style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'Inter', fontSize: '0.75rem', transition: 'color 0.3s' }}
-            onMouseEnter={e => (e.currentTarget.style.color = '#FFB800')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.25)')}>
-            Impressum
-          </a>
+          <div style={{ display: 'flex', gap: '1.5rem' }}>
+            <a href="#impressum" style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'Inter', fontSize: '0.75rem', transition: 'color 0.3s' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#FFB800')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.25)')}>
+              Impressum
+            </a>
+            <a href="#datenschutz" style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'Inter', fontSize: '0.75rem', transition: 'color 0.3s' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#FFB800')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.25)')}>
+              Datenschutz
+            </a>
+          </div>
         </div>
       </div>
 
@@ -144,6 +152,8 @@ export default function Footer() {
           </div>
         </div>
       </motion.div>
+
+      <Datenschutz />
     </footer>
   )
 }
