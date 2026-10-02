@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, type ReactNode } from 'react'
 
 const GradientDef = ({ id }: { id: string }) => (
   <defs>
@@ -105,7 +105,19 @@ const IconCamera = () => (
   </svg>
 )
 
-const services = [
+const IconMirror = () => (
+  <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" {...iconSize}>
+    <GradientDef id="g7" />
+    <rect x="11" y="4" width="22" height="32" rx="2.5" stroke="url(#g7)" strokeWidth={sw} />
+    <rect x="14" y="7" width="16" height="26" rx="1.5" stroke="url(#g7)" strokeWidth={sw} strokeDasharray="1.5 2.2" />
+    <path d="M17 12 L21 12 M17 15 L19 15" stroke="url(#g7)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="16" y1="36" x2="13" y2="41" stroke="url(#g7)" strokeWidth={sw} strokeLinecap="round" />
+    <line x1="28" y1="36" x2="31" y2="41" stroke="url(#g7)" strokeWidth={sw} strokeLinecap="round" />
+    <circle cx="22" cy="22" r="3" fill="url(#g7)" />
+  </svg>
+)
+
+const services: {icon: ReactNode; title: string; subtitle: string; description: string; color: string; featherColor: string; href?: string; cta?: string}[] = [
   {
     icon: <IconClapperboard />,
     title: 'Commercial Filmproduktion',
@@ -154,6 +166,16 @@ const services = [
     color: '#22AA44',
     featherColor: 'rgba(34,170,68,0.15)',
   },
+  {
+    icon: <IconMirror />,
+    title: 'Fotobox & Magic Mirror mieten',
+    subtitle: 'EAGLEBOOTH · Hochzeit · Firmenfeier',
+    description: 'Unsere eigene Fotobox und der interaktive Magic Mirror für Hochzeit, Geburtstag, Firmen- und Weihnachtsfeier – geliefert, aufgebaut und auf Wunsch betreut. Termin direkt online prüfen und buchen.',
+    color: '#F5C400',
+    featherColor: 'rgba(245,196,0,0.15)',
+    href: 'https://eaglebooth.de/',
+    cta: 'Zu EAGLEBOOTH – Fotobox mieten →',
+  },
 ]
 
 function ServiceCard({ service, index }: { service: (typeof services)[0]; index: number }) {
@@ -174,6 +196,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
         position: 'relative',
         overflow: 'hidden',
         cursor: 'default',
+        ...(service.href ? { gridColumn: '1 / -1' } : {}), // EAGLEBOOTH-Hinweis über die volle Breite
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
       }}
       whileHover={{
@@ -223,7 +246,8 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
       </p>
 
       <a
-        href="#contact"
+        href={service.href ?? '#contact'}
+        {...(service.href ? {target: '_blank', rel: 'noopener'} : {})}
         style={{
           display: 'inline-block',
           marginTop: '1.5rem',
@@ -238,7 +262,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
           transition: 'opacity 0.3s ease',
         }}
       >
-        Jetzt anfragen →
+        {service.cta ?? 'Jetzt anfragen →'}
       </a>
     </motion.div>
   )

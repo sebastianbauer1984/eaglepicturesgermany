@@ -39,6 +39,7 @@ export default function Footer() {
                 ['Portfolio', '#portfolio'],
                 ['Über mich', '#about'],
                 ['Kontakt', '#contact'],
+                ['Fotobox & Magic Mirror mieten', 'https://eaglebooth.de/'],
               ].map(([label, href]) => (
                 <li key={href}>
                   <a href={href} style={{
